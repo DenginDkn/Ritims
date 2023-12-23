@@ -1,0 +1,31 @@
+<nav>
+  <ul class="nav-bar">
+    <li class="logo">
+      <a href="#"><img src="favicon.ico" /></a>
+    </li>
+    <input type="checkbox" id="check" />
+    <span class="menu">
+      <li><a [routerLink]="''">Home</a></li>
+      <li><a>Messages</a></li>
+      <li>
+        <a [routerLink]="'/events'" routerLinkActive="active">Browse Events</a>
+      </li>
+      <li>
+        <a [routerLink]="'/musicians'" routerLinkActive="active"
+          >Browse Musicians</a
+        >
+      </li>
+      <li>
+        <a [routerLink]="'/signup'" routerLinkActive="active">Sign Up</a>
+      </li>
+      <li>
+        <a [routerLink]="'/login'" routerLinkActive="active">Login</a>
+      </li>
+
+      <label for="check" class="close-menu">
+        <i class="fas fa-times"></i>
+      </label>
+    </span>
+    <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
+  </ul>
+</nav>
