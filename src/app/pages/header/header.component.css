@@ -1,8 +1,14 @@
 @import url("https://fonts.googleapis.com/css?family=Alex+Brush|Merienda");
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
 .card-wrapper {
   overflow: hidden;
   display: block;
-  height: 680px;
+  height: 678px;
   position: relative;
 
   .content {
@@ -13,17 +19,11 @@
   }
 
   .input-group {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    column-gap: 2rem;
+    justify-content: center;
+    height: 25px;
     width: 650px;
-  }
-  .form-control {
-    border-radius: 5px;
-    border-top-right-radius: 5px !important;
-    border-bottom-right-radius: 5px !important;
+    margin: auto;
+    margin-top: 200px;
   }
 
   .welcome {
@@ -56,6 +56,8 @@
 }
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 body {
   font-family: "Poppins", sans-serif;
@@ -70,7 +72,7 @@ header {
   align-items: center;
   list-style: none;
   position: relative;
-  background-color: rgb(0, 0, 0);
+  background-color: rgb(24, 24, 24);
   padding: 12px 20px;
 }
 .logo img {
@@ -155,13 +157,13 @@ header {
 
 .container {
   width: 1000px;
-  height: 200px;
+  height: 250px;
+  margin: auto;
   margin-top: 40px;
-  text-align: center;
 }
 .container2 {
   width: 600px;
-  height: 120px;
+  height: 150px;
   margin: auto;
   justify-content: center;
   align-items: center;
@@ -170,53 +172,58 @@ header {
 .btn {
   width: 200px;
   height: 50px;
-  border-radius: 5px;
-  border-top-left-radius: 5px !important;
-  border-bottom-left-radius: 5px !important;
+  margin-top: 20px;
 }
 .container3 {
-  height: 115rem;
+  margin: auto;
+  margin-top: 50px;
   background-color: black;
   text-align: center; /* Center the content */
   padding: 20px; /* Add some padding for better readability */
-  display: flex; /* Align items with space around them */
-  flex-direction: column;
-  align-items: center;
-  h2 {
-    color: white;
-    font-family: "Poppins", sans-serif;
-    margin-bottom: 20px; /* Add some space below the title */
-  }
-  p {
-    color: white;
-    max-width: 600px; /* Limit the width for better readability */
-  }
+}
+.container3 h2 {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  margin-bottom: 20px; /* Add some space below the title */
+}
+
+.container3 p {
+  color: white;
+  max-width: 600px; /* Limit the width for better readability */
+  margin: auto; /* Center the paragraph */
 }
 
 .container4 {
-  width: 800px;
+  width: 500px;
   height: 350px;
+  margin: auto;
+  text-align: center;
+  box-sizing: inherit;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
+  justify-content: space-around; /* Align items with space around them */
 }
 
-.container5 {
-  flex-direction: row;
+.container5,
+.container6,
+.container7 {
   background-color: white;
   width: 225px;
   height: 270px;
-  margin: 10px;
-  a {
-    color: rgb(17, 110, 197);
-    max-width: 600px; /* Limit the width for better readability */
-    text-decoration: none;
-  }
-  h1 {
-    color: rgb(0, 0, 0);
-    max-width: 200px; /* Limit the width for better readability */
-    font-size: small;
-    margin: auto;
-  }
+  margin: 25px;
+  margin-top: 20px; /* Add some space around each container */
+}
+.container5 a,
+.container6 a,
+.container7 a {
+  color: rgb(17, 110, 197);
+  max-width: 600px; /* Limit the width for better readability */
+  text-decoration: none;
+}
+.container5 h1,
+.container6 h1,
+.container7 h1 {
+  color: rgb(0, 0, 0);
+  max-width: 200px; /* Limit the width for better readability */
+  font-size: small;
+  margin: auto;
 }

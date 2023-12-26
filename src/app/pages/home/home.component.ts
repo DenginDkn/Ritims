@@ -1,15 +1,19 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
+import { HOME_CONSTANTS } from '../../constants';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, MatCardModule, MatButtonModule],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
+  constants = HOME_CONSTANTS;
   public musicServiceTypes: MusicServiceType[] = [
     {
       image: 'https://i.ibb.co/0mzjJP9/musician.jpg',
@@ -32,47 +36,48 @@ export class HomeComponent {
     {
       image: 'https://i.ibb.co/nwDnbQt/Guitarist.jpg',
       name: 'Guitarist',
-      description: 'Guitar Guitar Guitar',
+      description: 'Find the perfect guitarist for your events with Ritims.',
     },
     {
       image: 'https://i.ibb.co/nBzRKQs/Pianist.jpg',
       name: 'Pianists',
-      description: 'Piano piano piano',
+      description: 'Hire professional pianists with ease at Ritims.',
     },
     {
       image: 'https://i.ibb.co/PYc03m3/Violin.jpg',
-      name: 'Violin',
-      description: 'Violin violon',
+      name: 'Violinsts',
+      description: 'Book the perfect violin teacher with Ritims.',
     },
     {
       image: 'https://i.ibb.co/4p4r76c/Drum.jpg',
       name: 'Drummers',
-      description: 'Drum drum drum',
+      description: 'Discover drummers feel the rhythm and make the beat.',
     },
     {
       image: 'https://i.ibb.co/z6zJ5zs/Bass.jpg',
       name: 'Bassist',
-      description: 'Bass bass bass',
+      description: 'Find professional bassists for private lessons.',
     },
     {
       image: 'https://i.ibb.co/wBXDTtn/DJ.jpg',
       name: 'DJ',
-      description: 'DJ DJ DJ DJ',
+      description: 'Rock your event with a DJ!',
     },
     {
       image: 'https://i.ibb.co/0mzjJP9/musician.jpg',
       name: 'Singer',
-      description: 'Singer singer singer',
+      description: 'Hire professional singer with ease at Ritims.',
     },
     {
       image: 'https://i.ibb.co/nwDnbQt/Guitarist.jpg',
       name: 'Electro Guitarist',
-      description: 'electro electro electro',
+      description:
+        'Find the perfect electro guitarist for your events with Ritims.',
     },
     {
       image: 'https://i.ibb.co/RHcCtYy/Harp.jpg',
       name: 'Harpist',
-      description: 'Harp harp harp',
+      description: 'Discover harpist feel the rhythm and make the beat.',
     },
   ];
 }

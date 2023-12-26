@@ -1,0 +1,58 @@
+<mat-card-content class="card-wrapper">
+  <h1>{{ constants.APP_TITLE }}</h1>
+  <mat-card-content class="input-group mb-1">
+    <input
+      type="text"
+      class="form-control"
+      placeholder="{{ constants.SEARCH_PLACEHOLDER }}"
+    />
+    <mat-card-actions>
+      <button class="btn btn-primary" type="submit">
+        {{ constants.SEARCH_BUTTON_TEXT }}
+      </button>
+    </mat-card-actions>
+  </mat-card-content>
+
+  <mat-card-content class="card__bg__image">
+    <img alt="" [src]="constants.BG_IMAGE_SRC" />
+  </mat-card-content>
+</mat-card-content>
+<mat-card-content class="container">
+  <h1>{{ constants.MAIN_CONTAINER_TITLE }}</h1>
+  <p>{{ constants.MAIN_CONTAINER_CONTENT }}</p>
+</mat-card-content>
+
+<div class="container2">
+  <h2>{{ constants.MUSICIAN_SIGNUP_TITLE }}</h2>
+  <mat-card-actions>
+    <button type="button" class="btn btn-dark" [routerLink]="'/signup'">
+      {{ constants.MUSICIAN_SIGNUP_BUTTON_TEXT }}
+    </button>
+  </mat-card-actions>
+</div>
+
+<mat-card-content class="container3">
+  <h2>{{ constants.MUSIC_SERVICE_TYPES_TITLE }}</h2>
+  <p>{{ constants.MUSIC_SERVICE_TYPES_CONTENT }}</p>
+  <mat-card-content class="container4">
+    <mat-card-content *ngFor="let type of musicServiceTypes" class="container5">
+      <img mat-card-image [src]="type.image" width="245" height="220" />
+      <a [routerLink]="'/musicians'">{{ type.name }}</a>
+      <h1>{{ type.description }}</h1>
+    </mat-card-content>
+  </mat-card-content>
+
+  <h2>{{ constants.INSTRUMENTALISTS_TITLE }}</h2>
+  <p>{{ constants.INSTRUMENTALISTS_CONTENT }}</p>
+
+  <mat-card-content class="container4">
+    <mat-card-content *ngFor="let type of instrumentalists" class="container5">
+      <img mat-card-image [src]="type.image" width="245" height="220" />
+      <a [routerLink]="'/musicians'">{{ type.name }}</a>
+      <h1>{{ type.description }}</h1>
+    </mat-card-content>
+
+    <h2>{{ constants.GENRES_TITLE }}</h2>
+    <p>{{ constants.GENRES_CONTENT }}</p>
+  </mat-card-content>
+</mat-card-content>
