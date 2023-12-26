@@ -1,0 +1,8 @@
+Deno:   Footer       Signup      Responsive hamburger menu    Browse Musicians Page Comp.
+
+
+Burak:  Powerfull filter system
+
+
+
+Baha:   DB oluştuma(.NET)  Profil entegrasyon DB   Authentication email/password
