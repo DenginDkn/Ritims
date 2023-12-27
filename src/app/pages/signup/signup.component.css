@@ -1,15 +1,18 @@
-
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #b0b0b0;
+}
 .login a {
-  color:rgb(24, 24, 24);
+  color: rgb(24, 24, 24);
   font-weight: 600;
-  
+
   justify-content: center;
 }
 
 .btn {
   width: 120px;
   height: 45px;
-  a{
+  a {
     text-decoration: none;
     color: white;
   }

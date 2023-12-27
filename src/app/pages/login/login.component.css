@@ -1,19 +1,32 @@
+.body {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 70%;
+}
+
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #b0b0b0;
+}
+
 .btn {
-    width: 120px;
-    height: 45px;
-    a{
-      text-decoration: none;
-      color: white;
-    }
+  width: 120px;
+  height: 45px;
+  a {
+    text-decoration: none;
+    color: white;
   }
-  .mdc-card__actions {
-    justify-content: center;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    box-sizing: border-box;
-    min-height: 52px;
-    padding: 8px;
-    text-align: center;
-  }
-  
+  margin-top: 15px;
+}
+.mdc-card__actions {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 52px;
+  padding: 8px;
+  text-align: center;
+}
