@@ -1,0 +1,19 @@
+.btn {
+    width: 120px;
+    height: 45px;
+    a{
+      text-decoration: none;
+      color: white;
+    }
+  }
+  .mdc-card__actions {
+    justify-content: center;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 52px;
+    padding: 8px;
+    text-align: center;
+  }
+  

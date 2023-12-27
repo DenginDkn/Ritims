@@ -1,7 +1,7 @@
-<div class="row">
+<div class="body">
   <div class="col-md-4 offset-md-4 col-sm-6 offset-sm-3">
-    <div class="card auth">
-      <div class="card-body auth-card">
+    <mat-card class="auth">
+      <mat-card-content class="auth-card">
         <form>
           <div class="form-group">
             <label for="name">Name : </label>
@@ -48,14 +48,17 @@
               placeholder="********"
             />
           </div>
-          <div class="text-center">
-            <input type="submit" class="btn btn-my" value="Sign Up" />
-          </div>
+          
+          <mat-card-actions>
+            <button type="button" class="btn btn-dark" > <a href="">Sign Up</a>
+            </button>
+          </mat-card-actions>
+
           <div class="text-center login">
-            Already have an account ? <a routerLink="/login">Login</a> hera.
+            Already have an account? <a [routerLink]="'/login'">Login</a> here.
           </div>
         </form>
-      </div>
-    </div>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>

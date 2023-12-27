@@ -1,12 +1,26 @@
-.login {
-  color: #fff;
-}
 
 .login a {
-  color: #d39e00;
+  color:rgb(24, 24, 24);
   font-weight: 600;
-  text-decoration: none;
+  
+  justify-content: center;
 }
-.example-container mat-form-field + mat-form-field {
-  margin-left: 8px;
+
+.btn {
+  width: 120px;
+  height: 45px;
+  a{
+    text-decoration: none;
+    color: white;
+  }
+}
+.mdc-card__actions {
+  justify-content: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 52px;
+  padding: 8px;
+  text-align: center;
 }
