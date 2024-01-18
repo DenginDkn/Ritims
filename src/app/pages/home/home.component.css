@@ -168,22 +168,24 @@ header {
   border-bottom-left-radius: 5px !important;
 }
 .container3 {
-  height: 122rem;
+  height: 125rem;
   background-color: rgb(24, 24, 24);
-  text-align: center; /* Center the content */
-  padding: 20px; /* Add some padding for better readability */
-  display: flex; /* Align items with space around them */
+  text-align: center; 
+  padding: 20px; 
+  display: flex; 
   flex-direction: column;
   align-items: center;
+  
   h2 {
     color: white;
     font-family: "Poppins", sans-serif;
-    margin-bottom: 20px; /* Add some space below the title */
+    margin-bottom: 20px; 
   }
   p {
     color: white;
-    max-width: 600px; /* Limit the width for better readability */
+    max-width: 800px; 
   }
+  
 }
 
 .container4 {
@@ -193,7 +195,15 @@ header {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+
+  h3 {
+    color: rgb(218, 170, 13);
+    font-size:25px;
+    text-decoration: underline;
+    margin: 10px;
+  }
 }
+
 
 .container5 {
   flex-direction: row;
@@ -228,3 +238,82 @@ header {
     transform: scale(1.1);
   }
 }
+
+.container6 {
+  height: 20rem;
+  background-color: rgb(24, 24, 24);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.footer-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  margin: 10px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+h4 {
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+a {
+  display: flex;
+  margin-top: 5px;
+  justify-content: center;
+  text-decoration: none;
+  color: white;
+}
+
+li {
+  display: flex;
+  justify-content: center; 
+  margin-right: 30px;
+  a{
+    margin-right: 5px;
+    border-radius: 30px;
+  }
+}
+.footer-row {
+  position: relative;
+}
+
+.footer-row::after {
+  content: "";
+  width: 80%;
+  height: 1px;
+  background-color: white;
+  position: absolute;
+  bottom: 0;
+  left:180px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.ai-content,
+.content2,
+.content3 {
+  width: 30%;
+  text-align: center;
+  color: white;
+}
+
+
+
+
+

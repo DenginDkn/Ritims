@@ -15,6 +15,28 @@ export interface HomeComponentConstants {
   INSTRUMENTALISTS_CONTENT: string;
   GENRES_TITLE: string;
   GENRES_CONTENT: string;
+  AI_SEARCH_TITLE: string;
+  AI_SEARCH_CONTENT: string;
+  RITIMS_TITLE: string;
+  RITIMS_CONTENT: string;
+  FROM_TITLE: string;
+  FROM_CONTENT: string;
+  CUSTOMER_CARE_TITLE: string;
+  HELP_CENTER: string;
+  TERMS_AND_CONDITIONS: string;
+  CONTACT_US: string;
+  COMPANY_TITLE: string;
+  ABOUT_US: string;
+  INVEST_IN_US: string;
+  CAREERS: string;
+  SOCIAL_MEDIA_TITLE: string;
+  BLOG: string;
+  INSTAGRAM_LINK: string;
+  INSTAGRAM_IMAGE: string;
+  TWITTER_LINK: string;
+  TWITTER_IMAGE: string;
+  FACEBOOK_LINK: string;
+  FACEBOOK_IMAGE: string;
 }
 
 export const HOME_CONSTANTS: HomeComponentConstants = {
@@ -52,4 +74,26 @@ export const HOME_CONSTANTS: HomeComponentConstants = {
     Explore and connect with musicians who resonate with your preferred
     musical genre, ensuring an unforgettable auditory experience for your
     event.`,
+    AI_SEARCH_TITLE: 'AI Search',
+    AI_SEARCH_CONTENT: 'X AI. Find the best AI tool.',
+    RITIMS_TITLE: "Ritim's",
+    RITIMS_CONTENT: '© Ritim\'s LTD, 2023',
+    FROM_TITLE: 'From',
+    FROM_CONTENT: 'Designed in Izmir, Turkey',
+    CUSTOMER_CARE_TITLE: 'Customer Care',
+  HELP_CENTER: 'Help Center',
+  TERMS_AND_CONDITIONS: 'Terms and Conditions',
+  CONTACT_US: 'Contact us',
+  COMPANY_TITLE: 'Company',
+  ABOUT_US: 'About us',
+  INVEST_IN_US: 'Invest in us',
+  CAREERS: 'Careers',
+  SOCIAL_MEDIA_TITLE: 'Social Media',
+  BLOG: 'Blog',
+  INSTAGRAM_LINK: 'https://www.instagram.com/',
+  INSTAGRAM_IMAGE: 'https://static.wixstatic.com/media/11062b_9b5a3b3607694630a7253c5fc4ff6476~mv2.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_9b5a3b3607694630a7253c5fc4ff6476~mv2.png',
+  TWITTER_LINK: 'https://twitter.com/home',
+  TWITTER_IMAGE: 'https://static.wixstatic.com/media/9c4b521dd2404cd5a05ed6115f3a0dc8.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/9c4b521dd2404cd5a05ed6115f3a0dc8.png',
+  FACEBOOK_LINK: 'https://www.facebook.com/',
+  FACEBOOK_IMAGE: 'https://static.wixstatic.com/media/11062b_a84995cc8b024f4ea398f5744a56bc27~mv2.png/v1/fill/w_39,h_39,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/11062b_a84995cc8b024f4ea398f5744a56bc27~mv2.png',
 };

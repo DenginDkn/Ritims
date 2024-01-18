@@ -1,3 +1,4 @@
+<script src="https://kit.fontawesome.com/338aaa2bd0.js" crossorigin="anonymous"></script>
 <mat-card-content class="card-wrapper">
   <h1>{{ constants.APP_TITLE }}</h1>
   <mat-card-content class="input-group mb-1">
@@ -54,5 +55,67 @@
 
     <h2>{{ constants.GENRES_TITLE }}</h2>
     <p>{{ constants.GENRES_CONTENT }}</p>
-  </mat-card-content>
+
+    <div *ngFor="let type of MUSIC_TYPES">
+      <h3 [routerLink]="type.link">{{ type.name }}</h3>
+    </div>
 </mat-card-content>
+</mat-card-content>
+
+
+
+<mat-card-content class="container6">
+  <footer>
+    <div class="footer-row">
+      <div class="footer-column">
+        <h4>{{ constants.CUSTOMER_CARE_TITLE }}</h4>
+        <ul>
+          <li><a href="#">{{ constants.HELP_CENTER }}</a></li>
+          <li><a href="#">{{ constants.TERMS_AND_CONDITIONS }}</a></li>
+          <li><a href="#">{{ constants.CONTACT_US }}</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h4>{{ constants.COMPANY_TITLE }}</h4>
+        <ul>
+          <li><a href="#">{{ constants.ABOUT_US }}</a></li>
+          <li><a href="#">{{ constants.INVEST_IN_US }}</a></li>
+          <li><a href="#">{{ constants.CAREERS }}</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-column">
+        <h4>{{ constants.SOCIAL_MEDIA_TITLE }}</h4>
+        <ul>
+          <li><a href="#">{{ constants.BLOG }}</a></li>
+          <li>
+            <i class="fa-brands fa-square-instagram"></i>
+            <a href="{{ constants.INSTAGRAM_LINK }}" target="_blank"><img src="{{ constants.INSTAGRAM_IMAGE }}" alt="Instagram"></a>
+            <a href="{{ constants.TWITTER_LINK }}" target="_blank"><img src="{{ constants.TWITTER_IMAGE }}" alt="Twitter"></a>
+            <a href="{{ constants.FACEBOOK_LINK }}" target="_blank"><img src="{{ constants.FACEBOOK_IMAGE }}" alt="Facebook"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+  
+  <div class="footer-content">
+    <div class="ai-content">
+      <h3>{{ constants.AI_SEARCH_TITLE }}</h3>
+      <p>{{ constants.AI_SEARCH_CONTENT }}</p>
+    </div>
+    <div class="content2">
+      <h3>{{ constants.RITIMS_TITLE }}</h3>
+      <p>{{ constants.RITIMS_CONTENT }}</p>
+    </div>
+    <div class="content3">
+      <h3>{{ constants.FROM_TITLE }}</h3>
+      <p>{{ constants.FROM_CONTENT }}</p>
+    </div>
+  </div>
+</mat-card-content>
+
+
+
+

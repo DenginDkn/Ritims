@@ -32,7 +32,8 @@ body {
     color: #fff;
     display: block;
   }
-  & h1 {
+
+  h1 {
     font-family: "Alex Brush";
     color: #fff;
     font-size: 5em;
@@ -54,17 +55,25 @@ body {
   right: 0;
   bottom: 0;
 }
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: "Poppins", sans-serif;
 }
+
 header {
   background-color: black;
 }
+
+nav {
+  z-index: 1000; /* Ensure the navigation is above other elements */
+}
+
 .nav-bar {
   width: 100%;
   display: flex;
@@ -75,15 +84,19 @@ header {
   background-color: rgb(24, 24, 24);
   padding: 12px 20px;
 }
+
 .logo img {
   width: 40px;
 }
+
 .menu {
   display: flex;
 }
+
 .menu li {
   padding-left: 30px;
 }
+
 .menu li a {
   display: inline-block;
   text-decoration: none;
@@ -93,6 +106,7 @@ header {
   position: relative;
   text-transform: uppercase;
 }
+
 .menu li a::after {
   content: "";
   position: absolute;
@@ -103,9 +117,11 @@ header {
   background-color: var(--color1);
   transition: 0.15s ease-in-out;
 }
+
 .menu li a:hover:after {
   width: 100%;
 }
+
 .open-menu,
 .close-menu {
   position: absolute;
@@ -114,18 +130,22 @@ header {
   font-size: 1.5rem;
   display: none;
 }
+
 .open-menu {
   top: 50%;
   right: 20px;
   transform: translateY(-50%);
 }
+
 .close-menu {
   top: 20px;
   right: 20px;
 }
+
 #check {
   display: none;
 }
+
 @media (max-width: 610px) {
   .menu {
     flex-direction: column;
@@ -136,94 +156,25 @@ header {
     position: fixed;
     top: 0;
     right: -100%;
-    z-index: 100;
+    z-index: 100; /* Ensure the mobile menu is above other elements */
     background-color: var(--color2);
     transition: all 0.2s ease-in-out;
   }
+
   .menu li {
     margin-top: 40px;
   }
+
   .menu li a {
     padding: 10px;
   }
+
   .open-menu,
   .close-menu {
     display: block;
   }
+
   #check:checked ~ .menu {
     right: 0;
   }
-}
-
-.container {
-  width: 1000px;
-  height: 250px;
-  margin: auto;
-  margin-top: 40px;
-}
-.container2 {
-  width: 600px;
-  height: 150px;
-  margin: auto;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-.btn {
-  width: 200px;
-  height: 50px;
-  margin-top: 20px;
-}
-.container3 {
-  margin: auto;
-  margin-top: 50px;
-  background-color: black;
-  text-align: center; /* Center the content */
-  padding: 20px; /* Add some padding for better readability */
-}
-.container3 h2 {
-  color: white;
-  font-family: "Poppins", sans-serif;
-  margin-bottom: 20px; /* Add some space below the title */
-}
-
-.container3 p {
-  color: white;
-  max-width: 600px; /* Limit the width for better readability */
-  margin: auto; /* Center the paragraph */
-}
-
-.container4 {
-  width: 500px;
-  height: 350px;
-  margin: auto;
-  text-align: center;
-  box-sizing: inherit;
-  display: flex;
-  justify-content: space-around; /* Align items with space around them */
-}
-
-.container5,
-.container6,
-.container7 {
-  background-color: white;
-  width: 225px;
-  height: 270px;
-  margin: 25px;
-  margin-top: 20px; /* Add some space around each container */
-}
-.container5 a,
-.container6 a,
-.container7 a {
-  color: rgb(17, 110, 197);
-  max-width: 600px; /* Limit the width for better readability */
-  text-decoration: none;
-}
-.container5 h1,
-.container6 h1,
-.container7 h1 {
-  color: rgb(0, 0, 0);
-  max-width: 200px; /* Limit the width for better readability */
-  font-size: small;
-  margin: auto;
 }

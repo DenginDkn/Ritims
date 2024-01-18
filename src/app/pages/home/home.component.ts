@@ -32,6 +32,24 @@ export class HomeComponent {
     },
   ];
 
+  public MUSIC_TYPES: { name: string; link: string }[] = [
+    { name: 'Pop', link: '/musicians' },
+    { name: 'Classical', link: '/musicians' },
+    { name: 'Electronic', link: '/musicians' },
+    { name: 'Punk', link: '/musicians' },
+    { name: 'Rock', link: '/musicians' },
+    { name: 'Jazz', link: '/musicians' },
+    { name: 'Blues', link: '/musicians' },
+    { name: 'Metal', link: '/musicians' },
+    { name: 'Disco', link: '/musicians' },
+    { name: 'World Music', link: '/musicians' },
+    { name: 'Folk', link: '/musicians' },
+    { name: 'Country', link: '/musicians' },
+    { name: 'Latin', link: '/musicians' },
+    { name: 'Funk', link: '/musicians' },
+    { name: 'Hip-Hop / Rap', link: '/musicians' },
+    // Add more music types as needed
+  ];
   public instrumentalists: instrumentalist[] = [
     {
       image: 'https://i.ibb.co/nwDnbQt/Guitarist.jpg',
