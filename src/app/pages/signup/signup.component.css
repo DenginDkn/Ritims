@@ -1,3 +1,6 @@
+.body{
+  height: 30rem;
+}
 .form-control {
   border-radius: 5px;
   border: 1px solid #b0b0b0;

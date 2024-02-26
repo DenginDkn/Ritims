@@ -13,6 +13,7 @@ import { MusiciansComponent } from './pages/musicians/musicians.component';
 import { EventsComponent } from './pages/events/events.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
+import { FooterComponent } from './pages/footer/footer.component';
 
 @Component({
   selector: 'app-root',
@@ -34,10 +35,12 @@ import { LoginComponent } from './pages/login/login.component';
     EventsComponent,
     SignupComponent,
     LoginComponent,
+    FooterComponent
   ],
 })
 export class AppComponent {
   showHeader: boolean = true;
   showAppComponent: boolean = true;
   title = 'angular-website';
+showFooter: any;
 }

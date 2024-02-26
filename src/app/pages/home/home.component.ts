@@ -62,7 +62,7 @@ export class HomeComponent {
       description: 'Hire professional pianists with ease at Ritims.',
     },
     {
-      image: 'https://i.ibb.co/PYc03m3/Violin.jpg',
+      image: 'https://i.ibb.co/WsxLR1h/Violin.jpg',
       name: 'Violinsts',
       description: 'Book the perfect violin teacher with Ritims.',
     },
