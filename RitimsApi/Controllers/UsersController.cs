@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 [Route("api/[controller]")]
 public class UsersController : ControllerBase
 {
-    private readonly UserContext _context; // Replace YourDbContext with the actual name of your DbContext
+    private readonly UserContext _context; 
 
     public UsersController(UserContext context)
     {

@@ -13,6 +13,7 @@ import { MusiciansComponent } from './pages/musicians/musicians.component';
 import { EventsComponent } from './pages/events/events.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
@@ -34,6 +35,7 @@ import { LoginComponent } from './pages/login/login.component';
     EventsComponent,
     SignupComponent,
     LoginComponent,
+    HttpClientModule,
   ],
 })
 export class AppComponent {
