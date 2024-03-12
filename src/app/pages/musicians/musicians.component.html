@@ -1,1 +1,52 @@
-<h2>BROWSE MUSICIANS WORK</h2>
+<mat-card-content class="card-wrapper">
+  <div class="filter-container">
+    <div class="filter-item">
+      <label for="instrument">Instrument:</label>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> {{ selectedInstrument ? selectedInstrument : 'Select Instrument' }} </button>
+        <ul class="dropdown-menu"> 
+          <li *ngFor="let instrument of instruments" (click)="selectedInstrument = instrument">{{ instrument }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="filter-item">
+      <label for="city">City:</label>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> {{ selectedCity ? selectedCity : 'Select City' }} </button>
+        <ul class="dropdown-menu"> 
+          <li *ngFor="let city of cities" (click)="selectedCity = city">{{ city }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="filter-item">
+      <label for="keyword">Keyword:</label>
+      <input type="text" id="keyword" [(ngModel)]="searchKeyword" placeholder="Enter keyword" class="input">
+    </div>
+    <button type="button" class="btn btn-dark buttonfilter" [disabled]="filteringPerformed" (click)="filterEvents()">Filter</button>
+    <button type="button" class="btn btn-dark buttonfilter resetbutton"  [disabled]="!resetFiltering" (click)="resetFilter()">Reset</button>
+</div>
+
+  <div class="container">
+    <h1>{{ constants.INSTRUMENTALIST_CONTAINER_TITLE }}</h1>
+    <p>{{ constants.INSTRUMENTALIST_CONTAINER_CONTENT }}</p>
+  </div>
+  <img alt="" class="imagemusicians" [src]="constants.BG_IMAGE_EVENT" />
+
+  <mat-card-content class="container3" *ngIf="showInstrumentalists">
+    <h2>{{ constants.MUSIC_SERVICE_TYPES_TITLE }}</h2>
+    <p>{{ constants.MUSIC_SERVICE_TYPES_CONTENT }}</p>
+    <mat-card-content class="container4">
+      <mat-card-content *ngFor="let type of instrumentalists" class="container5">
+        <img mat-card-image [src]="type.image" width="245" height="220" />
+        <a [routerLink]="'/login'">{{ type.name }}</a>
+        <h1>{{ type.description }}</h1>
+      </mat-card-content>
+    </mat-card-content>
+  </mat-card-content>
+  
+</mat-card-content>
+
+
+
+
+

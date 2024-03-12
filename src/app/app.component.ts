@@ -14,6 +14,7 @@ import { EventsComponent } from './pages/events/events.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FooterComponent } from './pages/footer/footer.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-root',
@@ -35,7 +36,8 @@ import { FooterComponent } from './pages/footer/footer.component';
     EventsComponent,
     SignupComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    FormsModule
   ],
 })
 export class AppComponent {

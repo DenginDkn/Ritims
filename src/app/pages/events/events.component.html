@@ -1,1 +1,52 @@
-<H2>BROWSE EVENTS WORKS</H2>
+<mat-card-content class="card-wrapper">
+  <div class="filter-container">
+    <div class="filter-item">
+      <label for="eventCategory">Event Category:</label>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="true"> {{ selectedEventCategory ? selectedEventCategory : 'Select Category' }} </button>
+        <ul class="dropdown-menu"> 
+          <li *ngFor="let eventCategory of eventCategories" (click)="selectedEventCategory = eventCategory">{{ eventCategory }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="filter-item">
+      <label for="city">City:</label>
+      <div class="dropdown">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> {{ selectedCity ? selectedCity : 'Select City' }} </button>
+        <ul class="dropdown-menu"> 
+          <li *ngFor="let city of cities" (click)="selectedCity = city">{{ city }}</li>
+        </ul>
+      </div>
+    </div>
+    <div class="filter-item">
+      <label for="keyword">Keyword:</label>
+      <input type="text" id="keyword" [(ngModel)]="searchKeyword" placeholder="Enter keyword" class="input">
+    </div>
+    <button type="button" class="btn btn-dark buttonfilter" [disabled]="filteringPerformed" (click)="filterEvents()">Filter</button>
+    <button type="button" class="btn btn-dark buttonfilter resetbutton"  [disabled]="!resetFiltering" (click)="resetFilter()">Reset</button>
+  </div>
+  
+  <div class="container">
+    <h1>{{ constants.EVENT_CONTAINER_TITLE }}</h1>
+    <p>{{ constants.EVENT_CONTAINER_CONTENT }}</p>
+  </div>
+  <img alt="" class="eventimage" [src]="constants.BG_IMAGE_EVENT" />
+
+  <mat-card-content class="container3" *ngIf="showMusicServiceTypes">
+    <h2>{{ constants.MUSIC_SERVICE_TYPES_TITLE }}</h2>
+    <p>{{ constants.MUSIC_SERVICE_TYPES_CONTENT }}</p>
+    <mat-card-content class="container4">
+      <mat-card-content *ngFor="let type of musicServiceTypes" class="container5">
+        <img mat-card-image [src]="type.image" width="245" height="220" />
+        <a [routerLink]="'/musicians'">{{ type.name }}</a>
+        <h1>{{ type.description }}</h1>
+      </mat-card-content>
+    </mat-card-content>
+  </mat-card-content>
+  
+</mat-card-content>
+
+
+
+
+

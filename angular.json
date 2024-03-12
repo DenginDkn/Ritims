@@ -76,7 +76,8 @@
             "tsConfig": "tsconfig.spec.json",
             "assets": ["src/favicon.ico", "src/assets", "src/musician.jpg"],
             "styles": ["src/styles.css"],
-            "scripts": []
+            "scripts": [
+            ]
           }
         }
       }

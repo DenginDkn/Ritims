@@ -4,6 +4,9 @@ import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { HOME_CONSTANTS } from '../../constants';
+import {Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-home',
@@ -18,17 +21,20 @@ export class HomeComponent {
     {
       image: 'https://i.ibb.co/0mzjJP9/musician.jpg',
       name: 'Live Performances',
-      description: 'Find the perfect live performance for your event.',
+      city:'Izmir',
+      description: 'Find the perfect live performance for your event in Izmir.',
     },
     {
       image: 'https://i.ibb.co/SP9vx2j/Musician2.jpg',
       name: 'Music Lessons',
-      description: 'Hire the perfect music teacher with Ritims.',
+      city:'Istanbul',
+      description: 'Hire the perfect music teacher with Ritims in Istanbul.',
     },
     {
       image: 'https://i.ibb.co/0yRx9YN/Musician3.jpg',
       name: 'Recording Sessions',
-      description: 'Book the best recording sessions at Ritims now.',
+      city:'Ankara',
+      description: 'Book the best recording sessions at Ritims now in Ankara.',
     },
   ];
 
@@ -54,59 +60,86 @@ export class HomeComponent {
     {
       image: 'https://i.ibb.co/nwDnbQt/Guitarist.jpg',
       name: 'Guitarist',
+      city: 'Izmir',
       description: 'Find the perfect guitarist for your events with Ritims.',
     },
     {
       image: 'https://i.ibb.co/nBzRKQs/Pianist.jpg',
-      name: 'Pianists',
+      name: 'Pianist',
+      city: 'Istanbul',
       description: 'Hire professional pianists with ease at Ritims.',
     },
     {
       image: 'https://i.ibb.co/WsxLR1h/Violin.jpg',
-      name: 'Violinsts',
+      name: 'Violinist',
+      city: 'Istanbul',
       description: 'Book the perfect violin teacher with Ritims.',
     },
     {
       image: 'https://i.ibb.co/4p4r76c/Drum.jpg',
-      name: 'Drummers',
+      name: 'Drummer',
+      city: 'Eskisehir',
       description: 'Discover drummers feel the rhythm and make the beat.',
     },
     {
       image: 'https://i.ibb.co/z6zJ5zs/Bass.jpg',
-      name: 'Bassist',
+      name: 'Bass Guitarist',
+      city: 'Ankara',
       description: 'Find professional bassists for private lessons.',
     },
     {
       image: 'https://i.ibb.co/wBXDTtn/DJ.jpg',
       name: 'DJ',
+      city: 'Antalya',
       description: 'Rock your event with a DJ!',
     },
     {
       image: 'https://i.ibb.co/0mzjJP9/musician.jpg',
       name: 'Singer',
+      city: 'Antalya',
       description: 'Hire professional singer with ease at Ritims.',
     },
     {
       image: 'https://i.ibb.co/nwDnbQt/Guitarist.jpg',
       name: 'Electro Guitarist',
+      city: 'Aydın',
       description:
         'Find the perfect electro guitarist for your events with Ritims.',
     },
     {
       image: 'https://i.ibb.co/RHcCtYy/Harp.jpg',
       name: 'Harpist',
+      city: 'Izmir',
       description: 'Discover harpist feel the rhythm and make the beat.',
     },
   ];
+  constructor(private router: Router) {}
+  search() {
+    const searchText = (document.querySelector('input.form-control') as HTMLInputElement).value.toLowerCase();
+  
+    const musicServiceTypeMatch = this.musicServiceTypes.find(type => type.name.toLowerCase() === searchText);
+    const instrumentalistMatch = this.instrumentalists.find(type => type.name.toLowerCase() === searchText);
+  
+    if (musicServiceTypeMatch) {
+      this.router.navigate(['/events']);
+    } else if (instrumentalistMatch) {
+      this.router.navigate(['/musicians']);
+    } else {
+      // Handle case when no match is found
+      alert('No match found for your search.');
+    }
+  }
 }
 
 export interface instrumentalist {
   image: string;
   name: string;
+  city: string;
   description: string;
 }
 export interface MusicServiceType {
   image: string;
   name: string;
+  city: string;
   description: string;
 }

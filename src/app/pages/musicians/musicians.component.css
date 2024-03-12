@@ -1,0 +1,188 @@
+.card-wrapper {
+  position: relative; /* Ana kartın pozisyonunu belirle */
+}
+
+.card__bg__image {
+  position: relative; /* Arkaplan resminin pozisyonunu belirle */
+  z-index: 1; /* Arkaplan resmini ön plana getir */
+}
+
+
+.imagemusicians{
+  width: 100%;
+}
+.container3 {
+  position: absolute;
+  top: calc(100% + -50px); /* Position it below the filter container */
+  left: 50%;
+  transform: translateX(-50%);
+  height: 35rem;
+  background-color: rgba(0, 0, 0, 0.50); /* Arkaplan rengini belirle */
+  border-radius: 15px; /* Köşeleri yuvarla */
+  text-align: center; 
+  padding: 20px; 
+  display: flex; 
+  flex-direction: column;
+  align-items: center;
+  
+  h2 {
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin-bottom: 20px; 
+  }
+  p {
+    color: white;
+    max-width: 800px; 
+  }
+  
+}
+
+.container4 {
+  width: 800px;
+  height: 350px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  h3 {
+    color: rgb(218, 170, 13);
+    font-size:25px;
+    text-decoration: underline;
+    margin: 10px;
+  }
+}
+
+.container5 {
+  flex-direction: row;
+  background-color: white;
+  width: 245px;
+  height: 300px;
+  margin: 10px;
+  border-radius: 6px;
+
+  a {
+    display: block;
+    color: rgb(35, 88, 121);
+    max-width: 600px;
+    text-decoration: none;
+    margin: auto;
+    margin-top: 5px;
+  }
+
+  h1 {
+    max-width: 200px;
+    font-size: smaller;
+    margin: auto;
+    margin-top: 5px;
+  }
+
+  img {
+    transition: transform 0.3s ease-in-out;
+    border-radius: 5px;
+  }
+
+  img:hover {
+    transform: scale(1.1);
+  }
+}
+
+.buttonfilter{
+  height: 40px;
+  width: 155px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 25px;
+}
+
+.resetbutton{
+  margin-left: 35px;
+}
+
+.input{
+  border-radius: 5px;
+  height: 40px;
+  width: 165px;
+}
+
+
+.filter-container {
+  width: 650px;
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -200%);
+  z-index: 2;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.50);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: center;
+
+}
+
+.filter-item {
+  margin-bottom: 10px; /* Filtre öğeleri arasına boşluk bırak */
+  position: relative;
+  color: white;
+  flex-basis: calc(33.33%);
+}
+
+.filter-item label {
+  margin-right: 5px; /* Etiketler arasına boşluk bırak */
+}
+.container {
+  top: 0%; /* Kartın üst kısmından %50 oranında başla */
+  left: 50%; 
+  transform: translate(-50%, -405%);
+  position: absolute;
+  width: 670px;
+  height: 130px;
+  margin-top: 40px;
+  text-align: center;
+   z-index: 2;
+   color: white;
+}
+.custom-select {
+  position: relative;
+  display: inline-block;
+  background-color: #f1f1f1;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.selected-option {
+  display: block;
+  padding: 10px;
+  cursor: pointer;
+}
+
+
+
+.options {
+  position: absolute;
+  background-color: #fff;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 1;
+  border: 1px solid #ccc;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.options li {
+  padding: 10px;
+  cursor: pointer;
+}
+
+.options li:hover {
+  background-color: #ddd;
+}
