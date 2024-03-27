@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -12,6 +12,8 @@ import {
   Validators,
   FormsModule,
   ReactiveFormsModule,
+  FormGroup,
+  FormBuilder,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 
@@ -33,51 +35,54 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.css'],
 })
-export class SignupComponent {
-  email = new FormControl('', [Validators.required, Validators.email]);
-  name = new FormControl('', [Validators.required]);
-  city = new FormControl('', [Validators.required]);
-  password = new FormControl('', [Validators.required]);
-  confirmPassword = new FormControl('', [Validators.required]);
-  musician = new FormControl(false);
+export class SignupComponent implements OnInit {
+  signupForm!: FormGroup; // Ensure it's initialized in ngOnInit
 
   apiUrl = 'http://localhost:5188/api/Users';
 
-  constructor(private http: HttpClient) {}
+  constructor(private fb: FormBuilder, private http: HttpClient) { }
 
-  getErrorMessage(field: FormControl) {
-    if (field.hasError('required')) {
+  ngOnInit(): void {
+    this.signupForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]],
+      name: ['', Validators.required],
+      city: ['', Validators.required],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required],
+      musician: [false]
+    });
+  }
+
+  getErrorMessage(field: string) {
+    const control = this.signupForm.get(field);
+    if (control === null) {
+      return ''; // Return empty string or handle accordingly if control is null
+    }
+    if (control.hasError('required')) {
       return 'You must enter a value';
     }
-    if (field === this.email && field.hasError('email')) {
+    if (field === 'email' && control.hasError('email')) {
       return 'Not a valid email';
     }
     return '';
   }
 
   sendPostRequest() {
-    
-
-    const userData = {
-      email: this.email.value,
-      name: this.name.value,
-      city: this.city.value,
-      password: this.password.value,
-      musician: this.musician.value
-    };
-
-    console.log('Email şu',this.email.value);
-
-    this.http.post(this.apiUrl, userData)
-      .subscribe(
-        (response) => {
-          console.log('Post request successful:', response);
-          // Burada gelen cevaba göre isteğin başarılı olduğunu kullanıcıya bildirebilirsiniz
-        },
-        (error) => {
-          console.error('Post request error:', error);
-          // Hata durumunda kullanıcıya uygun bir mesaj gösterebilirsiniz
-        }
-      );
+    if (this.signupForm.valid) {
+      const userData = this.signupForm.value;
+      console.log(userData);
+      this.http.post(this.apiUrl, userData)
+        .subscribe(
+          (response) => {
+            console.log('Post request successful:', response);
+            // Handle successful response
+          },
+          (error) => {
+            console.error('Post request error:', error);
+            // Handle error response
+          }
+        );
+    }
   }
 }
+
