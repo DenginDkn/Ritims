@@ -1,64 +1,30 @@
-<div class="body">
-  <div class="col-md-4 offset-md-4 col-sm-6 offset-sm-3">
-    <mat-card class="auth">
-      <mat-card-content class="auth-card">
-        <form>
-          <div class="form-group">
-            <label for="name">Name : </label>
-            <input
-              type="text"
-              name="name"
-              class="form-control"
-              placeholder="Name"
-            />
-          </div>
-          <div class="form-group">
-            <label for="phone">Phone : </label>
-            <input
-              type="text"
-              name="phone"
-              class="form-control"
-              placeholder="Phone"
-            />
-          </div>
-          <div class="form-group">
-            <label for="email">Email : </label>
-            <input
-              type="text"
-              name="email"
-              class="form-control"
-              placeholder="Email"
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Password : </label>
-            <input
-              type="password"
-              name="password"
-              class="form-control"
-              placeholder="********"
-            />
-          </div>
-          <div class="form-group">
-            <label for="c_password">Confirm Password : </label>
-            <input
-              type="password"
-              name="c_password"
-              class="form-control"
-              placeholder="********"
-            />
-          </div>
-          
-          <mat-card-actions>
-            <button type="button" class="btn btn-dark" > <a href="">Sign Up</a>
-            </button>
-          </mat-card-actions>
-
-          <div class="text-center login">
-            Already have an account? <a [routerLink]="'/login'">Login</a> here.
-          </div>
-        </form>
-      </mat-card-content>
-    </mat-card>
+<form [formGroup]="signupForm">
+  <div class="form-group">
+    <label for="name">Name: </label>
+    <input type="text" formControlName="name" class="form-control" placeholder="Name" />
   </div>
-</div>
+  <div class="form-group">
+    <label for="email">Email: </label>
+    <input type="email" formControlName="email" class="form-control" placeholder="Email" />
+  </div>
+  <div class="form-group">
+    <label for="city">City: </label>
+    <input type="text" formControlName="city" class="form-control" placeholder="City" />
+  </div>
+  <div class="form-group">
+    <label for="password">Password: </label>
+    <input type="password" formControlName="password" class="form-control" placeholder="********" />
+  </div>
+  <div class="form-group">
+    <label for="confirmPassword">Confirm Password: </label>
+    <input type="password" formControlName="confirmPassword" class="form-control" placeholder="********" />
+  </div>
+  <div class="form-group">
+    <label for="musician">Are you a musician?</label>
+    <input type="checkbox" formControlName="musician" />
+  </div>
+  
+  <mat-card-actions>
+    <button type="button" class="btn btn-dark" (click)="sendPostRequest()">Sign Up</button>
+  </mat-card-actions>
+</form>
