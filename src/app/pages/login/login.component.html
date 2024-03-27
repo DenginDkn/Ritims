@@ -1,33 +1,15 @@
-<div class="body">
-    <div class="col-md-4 offset-md-4 col-sm-6 offset-sm-3">
-      <mat-card class="auth">
-        <mat-card-content class="auth-card">
-          <form>
-            <div class="form-group">
-              <label for="email">Email : </label>
-              <input
-                type="text"
-                name="email"
-                class="form-control"
-                placeholder="Email"
-              />
-            </div>
-            <div class="form-group">
-              <label for="password">Password : </label>
-              <input
-                type="password"
-                name="password"
-                class="form-control"
-                placeholder="********"
-              />
-            </div>
-            
-            <mat-card-actions>
-              <button type="button" class="btn btn-dark"> <a href="">Login</a></button>
-            </mat-card-actions>
-          </form>
-        </mat-card-content>
-      </mat-card>
-    </div>
+<form [formGroup]="loginForm">
+  <div class="form-group">
+    <label for="email">Email: </label>
+    <input type="email" formControlName="email" class="form-control" placeholder="Email" />
+    <div *ngIf="getErrorMessage('email')" class="text-danger">{{ getErrorMessage('email') }}</div>
   </div>
-  
+  <div class="form-group">
+    <label for="password">Password: </label>
+    <input type="password" formControlName="password" class="form-control" placeholder="********" />
+    <div *ngIf="getErrorMessage('password')" class="text-danger">{{ getErrorMessage('password') }}</div>
+  </div>
+  <mat-card-actions>
+    <button type="button" class="btn btn-dark" (click)="sendLoginRequest()">Login</button>
+  </mat-card-actions>
+</form>

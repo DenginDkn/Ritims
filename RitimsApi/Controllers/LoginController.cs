@@ -27,7 +27,7 @@ public class LoginController : ControllerBase
 
             if (user != null && user.Password == model.Password)
             {
-                return Ok(new { Message = "Login successful" });
+                return Ok(new { Message = "Login successful on api level" });
             }
 
             return Unauthorized(new { Message = "Invalid username or password" });
