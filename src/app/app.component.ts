@@ -13,8 +13,10 @@ import { MusiciansComponent } from './pages/musicians/musicians.component';
 import { EventsComponent } from './pages/events/events.component';
 import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './pages/footer/footer.component';
-import { FormsModule } from '@angular/forms';
+
+
 
 @Component({
   selector: 'app-root',
@@ -22,6 +24,7 @@ import { FormsModule } from '@angular/forms';
   templateUrl: 'app.component.html',
   styleUrl: 'app.component.css',
   imports: [
+    FooterComponent,
     CommonModule,
     MatCardModule,
     MatButtonModule,
@@ -36,13 +39,13 @@ import { FormsModule } from '@angular/forms';
     EventsComponent,
     SignupComponent,
     LoginComponent,
-    FooterComponent,
-    FormsModule
+    HttpClientModule,
   ],
 })
 export class AppComponent {
-  showHeader: boolean = true;
+   showHeader: boolean = true;
   showAppComponent: boolean = true;
   title = 'angular-website';
 showFooter: any;
 }
+
