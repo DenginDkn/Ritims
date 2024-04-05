@@ -6,6 +6,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router'; 
 import { MatDividerModule } from '@angular/material/divider';
 import {
   FormControl,
@@ -40,7 +41,7 @@ export class SignupComponent implements OnInit {
 
   apiUrl = 'http://localhost:5188/api/Users';
 
-  constructor(private fb: FormBuilder, private http: HttpClient) { }
+  constructor(private fb: FormBuilder, private http: HttpClient,private router: Router) { }
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
@@ -75,11 +76,11 @@ export class SignupComponent implements OnInit {
         .subscribe(
           (response) => {
             console.log('Post request successful:', response);
-            // Handle successful response
+            alert("Signed up succesfully,now you can login to Ritims!")
+            this.router.navigate(['/login']); 
           },
           (error) => {
             console.error('Post request error:', error);
-            // Handle error response
           }
         );
     }
