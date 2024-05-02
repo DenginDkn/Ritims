@@ -12,6 +12,5 @@ namespace RitimsApi.Models
         public string? Email { get; set; }
         public string? Password { get; set; }
         public string? City { get; set; }
-        public bool IsMusician { get; set; }
     }
 }

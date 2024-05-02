@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDividerModule } from '@angular/material/divider';
@@ -15,6 +15,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './pages/footer/footer.component';
+import { ProfileComponent } from './pages/profile/profile.component';
 
 
 
@@ -39,13 +40,24 @@ import { FooterComponent } from './pages/footer/footer.component';
     EventsComponent,
     SignupComponent,
     LoginComponent,
+    ProfileComponent,
     HttpClientModule,
   ],
 })
 export class AppComponent {
-   showHeader: boolean = true;
-  showAppComponent: boolean = true;
-  title = 'angular-website';
-showFooter: any;
+  showFooter: boolean = true;
+
+  constructor(private router: Router) {
+    this.router.events.subscribe((event: any) => {
+      if (event instanceof NavigationEnd) {
+        // Eğer router ana sayfaya gittiğinde footer'ı göster
+        this.showFooter = (this.router.url === '/home') ||
+                          (this.router.url === '/events') ||
+                          (this.router.url === '/profile') ||
+                          (this.router.url === '/musicians');
+      }
+    });
+  }
 }
+
 

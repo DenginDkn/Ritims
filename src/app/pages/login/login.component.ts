@@ -17,6 +17,7 @@ import {
   FormBuilder,
 } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { AuthService } from '../authservice';
 
 @Component({
   selector: 'app-login',
@@ -40,9 +41,11 @@ import { HttpClient } from '@angular/common/http';
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
   apiUrl = 'http://localhost:5188/api/login';
+  apiUrlMusician = 'http://localhost:5188/api/LoginMusician';
+
   loginError: string = '';
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router) { } 
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -75,7 +78,36 @@ export class LoginComponent implements OnInit {
             console.log('Login response:', response);
             if (response.message === 'Login successful') { // Response.message'ı kontrol et
               console.log('Login successful:', response);
+              this.authService.setLoggedIn(true);
               this.loginError = ''; // Herhangi bir önceki hata mesajını temizle
+              alert('Welcome to Ritims!');
+              this.router.navigate(['/home']); // Ana sayfaya yönlendir
+            } else {
+              this.loginError = 'Login failed. Please check your credentials.';
+              alert('Wrong password or email!');
+            }
+          },
+          (error) => {
+            alert('Wrong password or email!');
+            console.error('Login error:', error);
+            this.loginError = 'An error occurred while logging in.';
+          }
+        );
+    }
+  }
+
+  sendMusicianLoginRequest() {
+    if (this.loginForm.valid) {
+      const userData = this.loginForm.value;
+      console.log(userData);
+      this.http.post(this.apiUrlMusician, userData)
+        .subscribe(
+          (response: any) => {
+            console.log('Login response:', response);
+            if (response.message === 'Login successful') { // Response.message'ı kontrol et
+              console.log('Login successful:', response);
+              this.authService.setLoggedIn(true);
+              this.loginError = ''; // Herhangi bir önceki hata mesajını temizleW
               alert('Welcome to Ritims!');
               this.router.navigate(['/home']); // Ana sayfaya yönlendir
             } else {

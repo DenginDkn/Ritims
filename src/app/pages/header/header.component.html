@@ -11,23 +11,21 @@
         <a [routerLink]="'/events'" routerLinkActive="active">Browse Events</a>
       </li>
       <li>
-        <a [routerLink]="'/musicians'" routerLinkActive="active"
-          >Browse Musicians</a
-        >
+        <a [routerLink]="'/musicians'" routerLinkActive="active">Browse Musicians</a>
       </li>
-      <li>
+      <li *ngIf="!isLoggedIn()">
         <a [routerLink]="'/signup'" routerLinkActive="active">Sign Up</a>
       </li>
-      <li>
+      <li *ngIf="!isLoggedIn()">
         <a [routerLink]="'/login'" routerLinkActive="active">Login</a>
       </li>
-
+      <li *ngIf="isLoggedIn()">
+        <a [routerLink]="'/profile'" routerLinkActive="active">Profile</a>
+      </li>
       <label for="check" class="close-menu">
         <i class="fas fa-times"></i>
       </label>
     </span>
     <label for="check" class="open-menu"><i class="fas fa-bars"></i></label>
   </ul>
-
 </nav>
-

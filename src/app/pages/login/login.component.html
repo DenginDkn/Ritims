@@ -1,16 +1,36 @@
+  <div class="background">
+    
+</div>
 <form [formGroup]="loginForm">
-  <div class="form-group">
-    <label for="email">Email: </label>
-    <input type="email" formControlName="email" class="form-control" placeholder="Email" />
-    <div *ngIf="getErrorMessage('email')" class="text-danger">{{ getErrorMessage('email') }}</div>
-  </div>
-  <div class="form-group">
-    <label for="password">Password: </label>
-    <input type="password" formControlName="password" class="form-control" placeholder="********" />
-    <div *ngIf="getErrorMessage('password')" class="text-danger">{{ getErrorMessage('password') }}</div>
-  </div>
-  <mat-card-actions>
-    <button type="button" class="btn btn-dark" (click)="sendLoginRequest()">Login</button>
-  </mat-card-actions>
-</form>
+      <h3>Login</h3>
+      <label for="email">Email: </label>
+      <input type="email" formControlName="email" class="form-control" placeholder="Email" />
+      <div *ngIf="getErrorMessage('email')" class="text-danger">{{ getErrorMessage('email') }}</div>
 
+      <label for="password">Password: </label>
+      <input type="password" formControlName="password" class="form-control" placeholder="********" />
+
+      <mat-card-actions>
+        <button type="button"  (click)="sendMusicianLoginRequest()">Login with Musician</button>
+        <button type="button" (click)="sendLoginRequest()">Login with User</button>
+      </mat-card-actions>
+  </form>
+
+
+
+  <!-- <form [formGroup]="loginForm">
+    <div class="form-group">
+      <label for="email">Email: </label>
+      <input type="email" formControlName="email" class="form-control" placeholder="Email" />
+      <div *ngIf="getErrorMessage('email')" class="text-danger">{{ getErrorMessage('email') }}</div>
+    </div>
+    <div class="form-group">
+      <label for="password">Password: </label>
+      <input type="password" formControlName="password" class="form-control" placeholder="********" />
+      <div *ngIf="getErrorMessage('password')" class="text-danger">{{ getErrorMessage('password') }}</div>
+    </div>
+    <mat-card-actions>
+      <button type="button" class="btn btn-dark" (click)="sendMusicianLoginRequest()">Login with Musician</button>
+      <button type="button" class="btn btn-dark" (click)="sendLoginRequest()">Login with User</button>
+    </mat-card-actions>
+  </form> -->

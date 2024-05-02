@@ -9,7 +9,7 @@ namespace RitimsApi.DataContext
 
         public DbSet<users> Users { get; set; } = null!; 
         public DbSet<Musician> Musicians { get; set; } = null!; 
-         public DbSet<Event> Events { get; set; } = null!;
+        public DbSet<Event> Events { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

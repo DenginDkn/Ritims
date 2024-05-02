@@ -40,6 +40,8 @@ export class SignupComponent implements OnInit {
   signupForm!: FormGroup; // Ensure it's initialized in ngOnInit
 
   apiUrl = 'http://localhost:5188/api/Users';
+  apiUrlMusician = 'http://localhost:5188/api/Musicians';
+
 
   constructor(private fb: FormBuilder, private http: HttpClient,private router: Router) { }
 
@@ -76,7 +78,25 @@ export class SignupComponent implements OnInit {
         .subscribe(
           (response) => {
             console.log('Post request successful:', response);
-            alert("Signed up succesfully,now you can login to Ritims!")
+            alert("Signed up User succesfully,now you can login to Ritims!")
+            this.router.navigate(['/login']); 
+          },
+          (error) => {
+            console.error('Post request error:', error);
+          }
+        );
+    }
+  }
+
+  sendPostRequestMusician() {
+    if (this.signupForm.valid) {
+      const userData = this.signupForm.value;
+      console.log(userData);
+      this.http.post(this.apiUrlMusician, userData)
+        .subscribe(
+          (response) => {
+            console.log('Post request successful:', response);
+            alert("Signed up Musician succesfully,now you can login to Ritims!")
             this.router.navigate(['/login']); 
           },
           (error) => {
