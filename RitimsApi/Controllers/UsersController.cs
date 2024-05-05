@@ -98,4 +98,19 @@ public class UsersController : ControllerBase
     {
         return _context.Users.Any(e => e.Id == id);
     }
+    // GET: api/Users/GetByEmail/{email}
+    [HttpGet("GetByEmail/{email}")]
+    public async Task<ActionResult<users>> GetUserByEmail(string email)
+    {
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+
+        if (user == null)
+        {
+            return NotFound();
+        }
+
+        return user;
+    }
+
+    
 }

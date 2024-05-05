@@ -8,6 +8,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router'; 
 import { MatDividerModule } from '@angular/material/divider';
+import { EmailService } from '/Users/bahajyy/Ritims/src/app/email.service'; // EmailService'i import et
 import {
   FormControl,
   Validators,
@@ -45,7 +46,7 @@ export class LoginComponent implements OnInit {
 
   loginError: string = '';
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService) { }
+  constructor(private fb: FormBuilder, private http: HttpClient, private router: Router, private authService: AuthService, private emailService: EmailService ) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -79,6 +80,7 @@ export class LoginComponent implements OnInit {
             if (response.message === 'Login successful') { // Response.message'ı kontrol et
               console.log('Login successful:', response);
               this.authService.setLoggedIn(true);
+              this.emailService.setUserEmail(userData.email);
               this.loginError = ''; // Herhangi bir önceki hata mesajını temizle
               alert('Welcome to Ritims!');
               this.router.navigate(['/home']); // Ana sayfaya yönlendir
@@ -107,6 +109,7 @@ export class LoginComponent implements OnInit {
             if (response.message === 'Login successful') { // Response.message'ı kontrol et
               console.log('Login successful:', response);
               this.authService.setLoggedIn(true);
+              this.emailService.setUserEmail(userData.email);
               this.loginError = ''; // Herhangi bir önceki hata mesajını temizleW
               alert('Welcome to Ritims!');
               this.router.navigate(['/home']); // Ana sayfaya yönlendir

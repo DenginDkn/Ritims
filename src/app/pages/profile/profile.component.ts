@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
+import { EmailService } from '/Users/bahajyy/Ritims/src/app/email.service'; // EmailService'i import et
 import {
   FormControl,
   FormsModule,
@@ -35,45 +36,46 @@ import {
 })
 export class ProfileComponent implements OnInit {
   profileForm!: FormGroup;
-  userUrl= 'http://localhost:5188/api/Users';
   user: { name: string, email: string, city: string } = { name: '', email: '', city: '' };
 
-  constructor(private authService: AuthService, private router: Router,private fb: FormBuilder, private http: HttpClient) { }
+  constructor(
+    private authService: AuthService,
+    private router: Router,
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private emailService: EmailService // EmailService'i inject et
+  ) {}
 
   ngOnInit(): void {
     // Kullanıcının giriş yapmış olup olmadığını kontrol ediyoruz
     if (this.authService.isLoggedInUser()) {
-      // Kullanıcı giriş yapmışsa, profil bilgilerini alma işlemi devam eder
-      this.profileForm = this.fb.group({
-        name: ['dd', Validators.required],
-        email: ['213213', [Validators.required, Validators.email]],
-        city: ['123123', Validators.required]
-      });
+      // EmailService aracılığıyla kullanıcının e-posta bilgisini al
+      const userEmail = this.emailService.getUserEmail();
+      
+      // Kullanıcının bilgilerini alma işlemi
+      this.http.get<any>(`http://localhost:5188/api/Users/GetByEmail/${userEmail}`)
+        .subscribe(
+          (response: any) => {
+            console.log(response); // API'den gelen yanıtı konsola yazdır
+            this.user = response; // Kullanıcının bilgilerini sakla
+          },
+          (error) => {
+            console.error('Error fetching user profile:', error);
+          }
+        );
 
-    // Kullanıcının bilgilerini almak için HTTP isteği yapılır
-    const userData = this.profileForm.value;
-    
-    this.http.get<any>(this.userUrl)
-    .subscribe(
-      (response: any) => {
-        console.log(response); // API'den gelen yanıtı konsola yazdır
-        this.user = response; // Kullanıcının bilgilerini sakla
-        this.profileForm.patchValue({
-          name: this.user.name,
-          email: this.user.email,
-          city: this.user.city
-        });
-        console.log(userData);
-      },
-      (error) => {
-        console.error('Error fetching user profile:', error);
-      }
-    );
-  } else {
-    // Kullanıcı giriş yapmamışsa, istenilen işlemi yapabiliriz. Örneğin, başka bir sayfaya yönlendirme yapabiliriz.
-    this.router.navigate(['/login']);
+      // Profil formunu oluştur
+      this.profileForm = this.fb.group({
+        name: [this.user.name, Validators.required],
+        email: [{value: this.user.email, disabled: true}, [Validators.required, Validators.email]], // E-posta alanını pasif hale getir
+        city: [this.user.city, Validators.required]
+      });
+    } else {
+      // Kullanıcı giriş yapmamışsa, istenilen işlemi yapabiliriz. Örneğin, başka bir sayfaya yönlendirme yapabiliriz.
+      this.router.navigate(['/login']);
+    }
   }
-}
+
   signOut() {
     // Oturumu sonlandır
     this.authService.setLoggedIn(false);
@@ -82,5 +84,3 @@ export class ProfileComponent implements OnInit {
   }
 
 }
-
-
