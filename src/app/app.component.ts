@@ -16,6 +16,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FooterComponent } from './pages/footer/footer.component';
 import { ProfileComponent } from './pages/profile/profile.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -42,6 +44,7 @@ import { ProfileComponent } from './pages/profile/profile.component';
     LoginComponent,
     ProfileComponent,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
 })
 export class AppComponent {

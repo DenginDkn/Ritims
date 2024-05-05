@@ -8,6 +8,7 @@
 
       <label for="email">Email: </label>
       <input type="email" formControlName="email" class="form-control" placeholder="Email" />
+      <div *ngIf="getErrorMessage('email')" class="text-danger">{{ getErrorMessage('email') }}</div>
 
       <label for="city">City: </label>
       <input type="text" formControlName="city" class="form-control" placeholder="City" />
@@ -17,6 +18,7 @@
 
       <label for="confirmPassword">Confirm Password: </label>
       <input type="password" formControlName="confirmPassword" class="form-control" placeholder="********" />
+      <div *ngIf="signupError" class="text-danger">{{ signupError }}</div>
 
       <mat-card-actions>
         <button type="button"  (click)="sendPostRequestMusician()">Sign Up for Musician</button>

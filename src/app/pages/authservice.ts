@@ -4,17 +4,16 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  private isLoggedIn: boolean = false;
+  public isLoggedIn: boolean = false;
   
-
   constructor() { }
 
-  // Oturum durumunu güncellemek için metod
+  // Kullanıcının oturum durumunu güncellemek için metod
   setLoggedIn(value: boolean) {
     this.isLoggedIn = value;
   }
 
-  // Oturum durumunu kontrol etmek için metod
+  // Kullanıcının oturum durumunu kontrol etmek için metod
   isLoggedInUser(): boolean {
     return this.isLoggedIn;
   }

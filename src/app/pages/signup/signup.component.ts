@@ -42,6 +42,7 @@ export class SignupComponent implements OnInit {
   apiUrl = 'http://localhost:5188/api/Users';
   apiUrlMusician = 'http://localhost:5188/api/Musicians';
 
+  signupError: string = '';
 
   constructor(private fb: FormBuilder, private http: HttpClient,private router: Router) { }
 
@@ -51,15 +52,15 @@ export class SignupComponent implements OnInit {
       name: ['', Validators.required],
       city: ['', Validators.required],
       password: ['', Validators.required],
-      confirmPassword: ['', Validators.required],
-      musician: [false]
+      confirmPassword: ['', Validators.required]
     });
   }
+  
 
   getErrorMessage(field: string) {
     const control = this.signupForm.get(field);
     if (control === null) {
-      return ''; // Return empty string or handle accordingly if control is null
+      return '';
     }
     if (control.hasError('required')) {
       return 'You must enter a value';
@@ -68,17 +69,23 @@ export class SignupComponent implements OnInit {
       return 'Not a valid email';
     }
     return '';
-  }
+  }  
 
+  
+  
   sendPostRequest() {
     if (this.signupForm.valid) {
       const userData = this.signupForm.value;
-      console.log(userData);
+      if (userData.password !== userData.confirmPassword) {
+        this.signupError = 'Passwords do not match';
+        return;
+      }
+      this.signupError = ''; // Eşleşme doğruysa hatayı temizle
       this.http.post(this.apiUrl, userData)
         .subscribe(
           (response) => {
             console.log('Post request successful:', response);
-            alert("Signed up User succesfully,now you can login to Ritims!")
+            alert("Signed up User succesfully, now you can login to Ritims!")
             this.router.navigate(['/login']); 
           },
           (error) => {
@@ -87,16 +94,20 @@ export class SignupComponent implements OnInit {
         );
     }
   }
-
+  
   sendPostRequestMusician() {
     if (this.signupForm.valid) {
       const userData = this.signupForm.value;
-      console.log(userData);
+      if (userData.password !== userData.confirmPassword) {
+        this.signupError = 'Passwords do not match';
+        return;
+      }
+      this.signupError = ''; // Eşleşme doğruysa hatayı temizle
       this.http.post(this.apiUrlMusician, userData)
         .subscribe(
           (response) => {
             console.log('Post request successful:', response);
-            alert("Signed up Musician succesfully,now you can login to Ritims!")
+            alert("Signed up Musician succesfully, now you can login to Ritims!")
             this.router.navigate(['/login']); 
           },
           (error) => {
@@ -105,5 +116,6 @@ export class SignupComponent implements OnInit {
         );
     }
   }
+  
 }
 

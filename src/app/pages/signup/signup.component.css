@@ -30,12 +30,12 @@ body{
   background-color: rgba(255,255,255,0.13) !important;
 }
 form{
-    height: 800px;
+    height: 820px;
     width: 600px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
     transform: translate(-50%,-50%);
-    top: 54%;
+    top: 52%;
     left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
@@ -53,7 +53,6 @@ form *{
 form h3{
     font-size: 32px;
     font-weight: 500;
-    line-height: 42px;
     text-align: center;
 }
 
