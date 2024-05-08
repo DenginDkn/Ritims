@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router'; 
 import { MatDividerModule } from '@angular/material/divider';
-import { EmailService } from '/Users/bahajyy/Ritims/src/app/email.service'; // EmailService'i import et
+import { EmailService } from '../../email.service'; // EmailService'i import et
 import {
   FormControl,
   Validators,

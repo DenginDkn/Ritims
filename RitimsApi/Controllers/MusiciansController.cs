@@ -53,4 +53,19 @@ public class MusiciansController : ControllerBase
     {
         return _context.Musicians.Any(e => e.Id == id);
     }
+
+    [HttpGet("GetByEmail/{email}")]
+    public async Task<ActionResult<Musician>> GetUserByEmail(string email)
+    {
+        var Musicianuser = await _context.Musicians.FirstOrDefaultAsync(m => m.Email == email);
+
+        if (Musicianuser == null)
+        {
+            return NotFound();
+        }
+
+        return Musicianuser;
+    }
+
+    
 }

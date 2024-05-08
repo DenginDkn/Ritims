@@ -1,30 +1,57 @@
-<div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
+<!-- Profil bileşeni -->
+<div class="background">
+    <div class="container rounded bg-white mt-5 mb-5">
+      <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
-                <!-- Kullanıcı bilgileri -->
-                <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
-                <span class="font-weight-bold">{{ user.name }}</span>
-                <span class="text-black-50">{{ user.email }}</span>
-                <span>{{ user.city }}</span>
-            </div>
+          <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+            <!-- Kullanıcı bilgileri -->
+            <img class="rounded-circle mt-5" width="150px" src="https://st3.depositphotos.com/15648834/17930/v/600/depositphotos_179308454-stock-illustration-unknown-person-silhouette-glasses-profile.jpg">
+          </div>
         </div>
         <div class="col-md-5 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-3">
-                    <h4 class="text-right">Profile Settings</h4>
-                </div>
-                <form [formGroup]="profileForm">
-                  <div class="row mt-2">
-                      <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="first name" formControlName="name"></div>
-                      <div class="col-md-6"><label class="labels">City</label><input type="text" class="form-control" placeholder="city" formControlName="city"></div>
-                  </div>
-                  <!-- Diğer form alanları buraya eklenecek -->
-                  <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="button">Save Profile</button></div>
-                </form>
+          <div class="p-3 py-5">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <h4 class="text-right">Profile Settings</h4>
+              <button class="btn btn-primary profile-button" (click)="toggleEditMode()">
+                {{ editMode ? 'Cancel' : 'Edit' }}
+              </button>
             </div>
+  
+            <div *ngIf="!editMode">
+              <div class="row mt-2">
+                <div class="col font-weight-bold profile-info">
+                  <label class="labels">Name</label>
+                  <span class="name">{{ user.name }}</span>
+                </div>
+                <div class="col font-weight-bold profile-info">
+                  <label class="labels">Email</label>
+                  <span class="email">{{ user.email }}</span>
+                </div>
+                <div class="col font-weight-bold profile-info">
+                  <label class="labels">City</label>
+                  <span class="city">{{ user.city }}</span>
+                </div>
+              </div>
+              <button class="btn btn-primary profile-button" (click)="signOut()">Sign Out</button>
+            </div>
+  
+            <div *ngIf="editMode">
+              <!-- Düzenleme formu -->
+              <form [formGroup]="profileForm">
+                <div class="form-group">
+                  <label for="name">Name</label>
+                  <input type="text" class="form-control" id="name" formControlName="name">
+                </div>
+                <div class="form-group">
+                  <label for="city">City</label>
+                  <input type="text" class="form-control" id="city" formControlName="city">
+                </div>
+                <button type="submit" class="btn btn-primary saveButton">Save Changes</button>
+              </form>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
-    <button (click)="signOut()">Sign Out</button>
   </div>
   

@@ -11,7 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { MatDividerModule } from '@angular/material/divider';
-import { EmailService } from '/Users/bahajyy/Ritims/src/app/email.service'; // EmailService'i import et
+import { EmailService } from '../../email.service'; // EmailService'i import et
 import {
   FormControl,
   FormsModule,
@@ -37,6 +37,7 @@ import {
 export class ProfileComponent implements OnInit {
   profileForm!: FormGroup;
   user: { name: string, email: string, city: string } = { name: '', email: '', city: '' };
+  editMode: boolean = false;
 
   constructor(
     private authService: AuthService,
@@ -64,6 +65,17 @@ export class ProfileComponent implements OnInit {
           }
         );
 
+        this.http.get<any>(`http://localhost:5188/api/Musicians/GetByEmail/${userEmail}`)
+        .subscribe(
+          (response: any) => {
+            console.log(response); // API'den gelen yanıtı konsola yazdır
+            this.user = response; // Kullanıcının bilgilerini sakla
+          },
+          (error) => {
+            console.error('Error fetching user profile:', error);
+          }
+        );
+
       // Profil formunu oluştur
       this.profileForm = this.fb.group({
         name: [this.user.name, Validators.required],
@@ -73,6 +85,14 @@ export class ProfileComponent implements OnInit {
     } else {
       // Kullanıcı giriş yapmamışsa, istenilen işlemi yapabiliriz. Örneğin, başka bir sayfaya yönlendirme yapabiliriz.
       this.router.navigate(['/login']);
+    }
+  }
+
+  toggleEditMode() {
+    this.editMode = !this.editMode;
+    // Eğer düzenleme modu ise, profil formunu kullanıcının bilgileri ile doldur
+    if (this.editMode) {
+      this.profileForm.patchValue(this.user);
     }
   }
 
