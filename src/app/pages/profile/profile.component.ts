@@ -39,6 +39,8 @@ export class ProfileComponent implements OnInit {
   user: { name: string, email: string, city: string } = { name: '', email: '', city: '' };
   editMode: boolean = false;
 
+  putApiUrl="http://localhost:5188/api/Users/UpdateUserInfo";
+
   constructor(
     private authService: AuthService,
     private router: Router,
@@ -102,5 +104,36 @@ export class ProfileComponent implements OnInit {
     // Giriş ve kayıt sayfalarına yönlendir
     this.router.navigate(['/login']);
   }
+
+  sendUpdatePutRequest() {
+    if (this.profileForm.valid) {
+      const userEmail = this.emailService.getUserEmail();
+      const newName = this.profileForm.get('name')?.value;
+      const newCity = this.profileForm.get('city')?.value;
+  
+      this.http.put<any>(`http://localhost:5188/api/Users/UpdateUserInfo?email=${userEmail}&newName=${newName}&newCity=${newCity}`, {})
+        .subscribe(
+          () => {
+            // Update successful, toggle edit mode off
+            this.toggleEditMode();
+            
+            // Yeni kullanıcı bilgilerini API'den al ve kullanıcı nesnesini güncelle
+            this.http.get<any>(`http://localhost:5188/api/Users/GetByEmail/${userEmail}`)
+              .subscribe(
+                (response: any) => {
+                  this.user = response;
+                },
+                (error) => {
+                  console.error('Error fetching updated user profile:', error);
+                }
+              );
+          },
+          (error) => {
+            console.error('Error updating user profile:', error);
+          }
+        );
+    }
+  }
+  
 
 }

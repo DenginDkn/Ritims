@@ -112,7 +112,33 @@ public class UsersController : ControllerBase
         return user;
     }
 
-    
+    // PUT: api/Users/UpdateUserInfo
+[HttpPut("UpdateUserInfo")]
+public async Task<IActionResult> UpdateUserInfo(string email, string newName, string newCity)
+{
+    // Find the user by email
+    var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
 
-    
+    if (user == null)
+    {
+        return NotFound("User not found");
+    }
+
+    // Update user's name and city
+    user.Name = newName;
+    user.City = newCity;
+
+    try
+    {
+        // Save changes to the database
+        await _context.SaveChangesAsync();
+    }
+    catch (DbUpdateConcurrencyException)
+    {
+        // Handle concurrency exceptions if any
+        return StatusCode(500, "An error occurred while updating user information.");
+    }
+
+    return NoContent();
+}
 }
