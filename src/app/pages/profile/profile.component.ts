@@ -132,7 +132,32 @@ export class ProfileComponent implements OnInit {
             console.error('Error updating user profile:', error);
           }
         );
+
+        this.http.put<any>(`http://localhost:5188/api/Musicians/UpdateMusicianInfo?email=${userEmail}&newName=${newName}&newCity=${newCity}`, {})
+        .subscribe(
+          () => {
+            // Update successful, toggle edit mode off
+            this.toggleEditMode();
+            
+            // Yeni kullanıcı bilgilerini API'den al ve kullanıcı nesnesini güncelle
+            this.http.get<any>(`http://localhost:5188/api/Musicians/GetByEmail/${userEmail}`)
+              .subscribe(
+                (response: any) => {
+                  this.user = response;
+                },
+                (error) => {
+                  console.error('Error fetching updated user profile:', error);
+                }
+              );
+          },
+          (error) => {
+            console.error('Error updating user profile:', error);
+          }
+        );
+
+
     }
+
   }
   
 
