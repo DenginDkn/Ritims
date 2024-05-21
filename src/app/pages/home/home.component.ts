@@ -4,9 +4,7 @@ import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { HOME_CONSTANTS } from '../../constants';
-import {Router } from '@angular/router';
-
-
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -32,7 +30,6 @@ export class HomeComponent {
       description: 'The historical gas factory is a place where you can attend various concerts and events with your friends and family.',
       iframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3125.0543187717876!2d27.14921691161615!3d38.44021427343283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbd869bc746411%3A0x2b1f98f8964be000!2zVGFyaWhpIEhhdmFnYXrEsSBGYWJyaWthc8SxIEvDvGx0w7xyIE1lcmtlemk!5e0!3m2!1str!2str!4v1716289551914!5m2!1str!2str',
     },
-
     {
       image: 'https://i.ibb.co/0GzTYPg/Ekran-Al-nt-s.png',
       name: 'Carnival Venue',
@@ -117,12 +114,27 @@ export class HomeComponent {
       description: 'Discover harpist feel the rhythm and make the beat.',
     },
   ];
+
   constructor(private router: Router) {}
+
   search() {
     const searchText = (document.querySelector('input.form-control') as HTMLInputElement).value.toLowerCase();
   
-    const musicServiceTypeMatch = this.musicServiceTypes.find(type => type.name.toLowerCase() === searchText);
-    const instrumentalistMatch = this.instrumentalists.find(type => type.name.toLowerCase() === searchText);
+    const socialKeywords = ['event', 'concert', 'activity', 'performance', 'show','konser','etkinlik'];
+    const musicianKeywords = ['muzisyen', 'muzik', 'musician'];
+  
+    if (socialKeywords.some(keyword => searchText.includes(keyword))) {
+      this.router.navigate(['/events']);
+      return;
+    }
+
+    if (musicianKeywords.some(keyword => searchText.includes(keyword))) {
+      this.router.navigate(['/musicians']);
+      return;
+    }
+  
+    const musicServiceTypeMatch = this.musicServiceTypes.find(type => type.name.toLowerCase().includes(searchText));
+    const instrumentalistMatch = this.instrumentalists.find(type => type.name.toLowerCase().includes(searchText));
   
     if (musicServiceTypeMatch) {
       this.router.navigate(['/events']);
