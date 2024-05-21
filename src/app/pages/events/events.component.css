@@ -56,10 +56,13 @@
   .container5 {
     flex-direction: row;
     background-color: white;
-    width: 245px;
-    height: 300px;
+    display: flex;
+    width: 627px;
+    height: 310px;
     margin: 10px;
     border-radius: 6px;
+    justify-content: space-between;
+    align-items: flex-start;
   
     a {
       display: block;
@@ -80,10 +83,11 @@
     img {
       transition: transform 0.3s ease-in-out;
       border-radius: 5px;
+      scale: 1.06;
     }
   
     img:hover {
-      transform: scale(1.1);
+      transform: scale(1.02);
     }
   }
 
@@ -106,9 +110,11 @@
     width: 165px;
   }
 
+  
+
 
   .filter-container {
-    width: 650px;
+    width: 750px;
     position: absolute;
     top: 80%;
     left: 50%;
@@ -126,10 +132,13 @@
   }
   
   .filter-item {
-    margin-bottom: 10px; /* Filtre öğeleri arasına boşluk bırak */
+    margin-bottom: 10px;
     position: relative;
     color: white;
     flex-basis: calc(33.33%);
+    display: grid;
+    justify-content: center;
+    justify-items: center;
   }
   
   .filter-item label {
@@ -187,3 +196,18 @@
     background-color: #ddd;
   }
   
+  
+  .iframe-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 3px solid black;
+    padding: 2px;
+    box-sizing: border-box;
+  }
+
+  .content-wrapper {
+    border: 4px solid black;
+    padding: 8px;
+    box-sizing: border-box;
+  }

@@ -19,22 +19,26 @@ export class HomeComponent {
   constants = HOME_CONSTANTS;
   public musicServiceTypes: MusicServiceType[] = [
     {
-      image: 'https://i.ibb.co/0mzjJP9/musician.jpg',
-      name: 'Live Performances',
-      city:'Izmir',
-      description: 'Find the perfect live performance for your event in Izmir.',
+      image: 'https://i.ibb.co/1TcckCy/adamlar-by-omeravco-21-of-5720533596.jpg',
+      name: 'Hangout Hall',
+      city: 'Bornova',
+      description: 'Performance stage in Bornova where various musicians and artists perform concerts',
+      iframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3124.6162871463175!2d27.190653211616603!3d38.45033117284142!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b963752ab63703%3A0xbd1315c27300630a!2sHangout%20Performance%20Hall!5e0!3m2!1str!2str!4v1716235069251!5m2!1str!2str',
     },
     {
-      image: 'https://i.ibb.co/SP9vx2j/Musician2.jpg',
-      name: 'Music Lessons',
-      city:'Istanbul',
-      description: 'Hire the perfect music teacher with Ritims in Istanbul.',
+      image: 'https://i.ibb.co/5FYQ36V/D8y-Kz-N-W4-Acn-Joh.jpg',
+      name: 'Havagazi Fabrikasi',
+      city: 'Alsancak',
+      description: 'The historical gas factory is a place where you can attend various concerts and events with your friends and family.',
+      iframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3125.0543187717876!2d27.14921691161615!3d38.44021427343283!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbd869bc746411%3A0x2b1f98f8964be000!2zVGFyaWhpIEhhdmFnYXrEsSBGYWJyaWthc8SxIEvDvGx0w7xyIE1lcmtlemk!5e0!3m2!1str!2str!4v1716289551914!5m2!1str!2str',
     },
+
     {
-      image: 'https://i.ibb.co/0yRx9YN/Musician3.jpg',
-      name: 'Recording Sessions',
-      city:'Ankara',
-      description: 'Book the best recording sessions at Ritims now in Ankara.',
+      image: 'https://i.ibb.co/0GzTYPg/Ekran-Al-nt-s.png',
+      name: 'Carnival Venue',
+      city: 'Karsiyaka',
+      description: 'Various musician concerts at Karşıyaka Hilltown shopping center',
+      iframe: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3123.339316003576!2d27.07236191161772!3d38.47981162111782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14bbdb1dd56b18fb%3A0xbfc30349d870efc9!2sCarnival%20Veneu!5e0!3m2!1str!2str!4v1716238500492!5m2!1str!2str',
     },
   ];
 
@@ -60,56 +64,56 @@ export class HomeComponent {
     {
       image: 'https://i.ibb.co/nwDnbQt/Guitarist.jpg',
       name: 'Guitarist',
-      city: 'Izmir',
+      city: 'Bornova',
       description: 'Find the perfect guitarist for your events with Ritims.',
     },
     {
       image: 'https://i.ibb.co/nBzRKQs/Pianist.jpg',
       name: 'Pianist',
-      city: 'Istanbul',
+      city: 'Alsancak',
       description: 'Hire professional pianists with ease at Ritims.',
     },
     {
       image: 'https://i.ibb.co/WsxLR1h/Violin.jpg',
       name: 'Violinist',
-      city: 'Istanbul',
+      city: 'Karsiyaka',
       description: 'Book the perfect violin teacher with Ritims.',
     },
     {
       image: 'https://i.ibb.co/4p4r76c/Drum.jpg',
       name: 'Drummer',
-      city: 'Eskisehir',
+      city: 'Mavisehir',
       description: 'Discover drummers feel the rhythm and make the beat.',
     },
     {
       image: 'https://i.ibb.co/z6zJ5zs/Bass.jpg',
       name: 'Bass Guitarist',
-      city: 'Ankara',
+      city: 'Buca',
       description: 'Find professional bassists for private lessons.',
     },
     {
       image: 'https://i.ibb.co/wBXDTtn/DJ.jpg',
       name: 'DJ',
-      city: 'Antalya',
+      city: 'Balcova',
       description: 'Rock your event with a DJ!',
     },
     {
       image: 'https://i.ibb.co/0mzjJP9/musician.jpg',
       name: 'Singer',
-      city: 'Antalya',
+      city: 'Konak',
       description: 'Hire professional singer with ease at Ritims.',
     },
     {
       image: 'https://i.ibb.co/nwDnbQt/Guitarist.jpg',
       name: 'Electro Guitarist',
-      city: 'Aydın',
+      city: 'Alsancak',
       description:
         'Find the perfect electro guitarist for your events with Ritims.',
     },
     {
       image: 'https://i.ibb.co/RHcCtYy/Harp.jpg',
       name: 'Harpist',
-      city: 'Izmir',
+      city: 'Goztepe',
       description: 'Discover harpist feel the rhythm and make the beat.',
     },
   ];
@@ -142,4 +146,5 @@ export interface MusicServiceType {
   name: string;
   city: string;
   description: string;
+  iframe: string;
 }

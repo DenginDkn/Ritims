@@ -1,18 +1,22 @@
 <mat-card-content class="card-wrapper">
   <div class="filter-container">
     <div class="filter-item">
-      <label for="eventCategory">Event Category:</label>
+      <label for="eventCategory">Event Place's:</label>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="true"> {{ selectedEventCategory ? selectedEventCategory : 'Select Category' }} </button>
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="true"> 
+          {{ selectedEventCategory ? selectedEventCategory : 'Select Category' }} 
+        </button>
         <ul class="dropdown-menu"> 
           <li *ngFor="let eventCategory of eventCategories" (click)="selectedEventCategory = eventCategory">{{ eventCategory }}</li>
         </ul>
       </div>
     </div>
     <div class="filter-item">
-      <label for="city">City:</label>
+      <label for="city">District's:</label>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> {{ selectedCity ? selectedCity : 'Select City' }} </button>
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> 
+          {{ selectedCity ? selectedCity : 'Select District' }} 
+        </button>
         <ul class="dropdown-menu"> 
           <li *ngFor="let city of cities" (click)="selectedCity = city">{{ city }}</li>
         </ul>
@@ -33,20 +37,29 @@
   <img alt="" class="eventimage" [src]="constants.BG_IMAGE_EVENT" />
 
   <mat-card-content class="container3" *ngIf="showMusicServiceTypes">
-    <h2>{{ constants.MUSIC_SERVICE_TYPES_TITLE }}</h2>
+    <h2>{{ constants.EVENTS_TITLE }}</h2>
     <p>{{ constants.MUSIC_SERVICE_TYPES_CONTENT }}</p>
-    <mat-card-content class="container4">
-      <mat-card-content *ngFor="let type of musicServiceTypes" class="container5">
-        <img mat-card-image [src]="type.image" width="245" height="220" />
-        <a [routerLink]="'/musicians'">{{ type.name }}</a>
-        <h1>{{ type.description }}</h1>
-      </mat-card-content>
-    </mat-card-content>
+    <div class="container4">
+      <div class="container5" *ngFor="let type of musicServiceTypes">
+        <div class="content-wrapper">
+          <img mat-card-image [src]="type.image" width="245" height="220" />
+          <a [routerLink]="'/musicians'">{{ type.name }}</a>
+          <h1>{{ type.description }}</h1>
+        </div>
+        <div class="iframe-container">
+          <iframe
+            [src]="type.iframe"
+            width="350"
+            height="300"
+            style="border:0;"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+        </div>
+      </div>
+    </div>
   </mat-card-content>
   
+  
 </mat-card-content>
-
-
-
-
-

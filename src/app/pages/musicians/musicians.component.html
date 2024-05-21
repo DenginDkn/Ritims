@@ -10,9 +10,9 @@
       </div>
     </div>
     <div class="filter-item">
-      <label for="city">City:</label>
+      <label for="city">District's:</label>
       <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> {{ selectedCity ? selectedCity : 'Select City' }} </button>
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false"> {{ selectedCity ? selectedCity : 'Select District' }} </button>
         <ul class="dropdown-menu"> 
           <li *ngFor="let city of cities" (click)="selectedCity = city">{{ city }}</li>
         </ul>
@@ -33,7 +33,7 @@
   <img alt="" class="imagemusicians" [src]="constants.BG_IMAGE_EVENT" />
 
   <mat-card-content class="container3" *ngIf="showInstrumentalists">
-    <h2>{{ constants.MUSIC_SERVICE_TYPES_TITLE }}</h2>
+    <h2>{{ constants.EVENTS_TITLE }}</h2>
     <p>{{ constants.MUSIC_SERVICE_TYPES_CONTENT }}</p>
     <mat-card-content class="container4">
       <mat-card-content *ngFor="let type of instrumentalists" class="container5">

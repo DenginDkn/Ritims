@@ -14,7 +14,7 @@ export interface HomeComponentConstants {
   INSTRUMENTALIST_CONTAINER_CONTENT: string;
   MUSICIAN_SIGNUP_TITLE: string;
   MUSICIAN_SIGNUP_BUTTON_TEXT: string;
-  MUSIC_SERVICE_TYPES_TITLE: string;
+  EVENTS_TITLE: string;
   MUSIC_SERVICE_TYPES_CONTENT: string;
   INSTRUMENTALISTS_TITLE: string;
   INSTRUMENTALISTS_CONTENT: string;
@@ -64,7 +64,7 @@ export const HOME_CONSTANTS: HomeComponentConstants = {
     INSTRUMENTALIST_CONTAINER_CONTENT: 'Find music tutors, performers, sound engineers, managers! Explore hundreds of musicians offering their services for hire. Discover Wedding DJs, jazz bands, singers for hire, and local musicians near you today with Ritims',
   MUSICIAN_SIGNUP_TITLE: 'Are you a Musician? Looking For Jobs?',
   MUSICIAN_SIGNUP_BUTTON_TEXT: 'Sign up a Musician',
-  MUSIC_SERVICE_TYPES_TITLE: 'Music Service Types',
+  EVENTS_TITLE: 'EVENTS',
   MUSIC_SERVICE_TYPES_CONTENT: `Navigate through our extensive range of music service types to find the
     ideal match for your requirements. Whether you're in pursuit of mesmerizing
     live performances, enriching music lessons, or state-of-the-art recording

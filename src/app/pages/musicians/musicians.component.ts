@@ -32,7 +32,7 @@ export class MusiciansComponent {
       resetFiltering: boolean = false;
     
       instruments: string[] = ["Guitarist", "Pianist", "Violinist", "Drummer", "Bassist", "DJ", "Singer", "Electro Guitarist", "Harpist"];
-      cities: string[] = ["Izmir", "Istanbul", "Ankara", "Eskisehir", "Antalya", "Aydın"];
+      cities: string[] = ["Bornova", "Alsancak", "Karsiyaka", "Mavisehir", "Buca", "Balcova", "Konak", "Goztepe"];
     
       selectedInstrument: string = '';
       selectedCity: string = '';
@@ -42,56 +42,56 @@ export class MusiciansComponent {
         {
           image: 'https://i.ibb.co/nwDnbQt/Guitarist.jpg',
           name: 'Guitarist',
-          city: 'Izmir',
+          city: 'Bornova',
           description: 'Find the perfect guitarist for your events with Ritims.',
         },
         {
           image: 'https://i.ibb.co/nBzRKQs/Pianist.jpg',
           name: 'Pianist',
-          city: 'Istanbul',
+          city: 'Alsancak',
           description: 'Hire professional pianists with ease at Ritims.',
         },
         {
           image: 'https://i.ibb.co/WsxLR1h/Violin.jpg',
           name: 'Violinist',
-          city: 'Istanbul',
+          city: 'Karsiyaka',
           description: 'Book the perfect violin teacher with Ritims.',
         },
         {
           image: 'https://i.ibb.co/4p4r76c/Drum.jpg',
           name: 'Drummer',
-          city: 'Eskisehir',
+          city: 'Mavisehir',
           description: 'Discover drummers feel the rhythm and make the beat.',
         },
         {
           image: 'https://i.ibb.co/z6zJ5zs/Bass.jpg',
-          name: 'Bassist',
-          city: 'Ankara',
+          name: 'Bass Guitarist',
+          city: 'Buca',
           description: 'Find professional bassists for private lessons.',
         },
         {
           image: 'https://i.ibb.co/wBXDTtn/DJ.jpg',
           name: 'DJ',
-          city: 'Antalya',
+          city: 'Balcova',
           description: 'Rock your event with a DJ!',
         },
         {
           image: 'https://i.ibb.co/0mzjJP9/musician.jpg',
           name: 'Singer',
-          city: 'Antalya',
+          city: 'Konak',
           description: 'Hire professional singer with ease at Ritims.',
         },
         {
           image: 'https://i.ibb.co/nwDnbQt/Guitarist.jpg',
           name: 'Electro Guitarist',
-          city: 'Aydın',
+          city: 'Alsancak',
           description:
             'Find the perfect electro guitarist for your events with Ritims.',
         },
         {
           image: 'https://i.ibb.co/RHcCtYy/Harp.jpg',
           name: 'Harpist',
-          city: 'Izmir',
+          city: 'Goztepe',
           description: 'Discover harpist feel the rhythm and make the beat.',
         },
       ];
@@ -105,22 +105,34 @@ export class MusiciansComponent {
       }
     
       filterEvents() {
+        this.instrumentalists = [...this.originalInstrumentalists];
+      
         if (this.selectedInstrument) {
-          this.instrumentalists = this.instrumentalists.filter(type => type.name === this.selectedInstrument);
+          this.instrumentalists = this.instrumentalists.filter(
+            (type) => type.name === this.selectedInstrument
+          );
         }
-    
-        if(this.searchKeyword){
-          this.instrumentalists = this.instrumentalists.filter(type => type.name ===this.searchKeyword );
+      
+        if (this.searchKeyword) {
+          const keyword = this.searchKeyword.toLowerCase();
+          this.instrumentalists = this.instrumentalists.filter(
+            (type) =>
+              type.name.toLowerCase().includes(keyword) ||
+              type.city.toLowerCase().includes(keyword)
+          );
         }
-
-        if(this.selectedCity){
-          this.instrumentalists = this.instrumentalists.filter(type => type.city === this.selectedCity);
+      
+        if (this.selectedCity) {
+          this.instrumentalists = this.instrumentalists.filter(
+            (type) => type.city === this.selectedCity
+          );
         }
-    
+      
         this.showInstrumentalists = true;
         this.filteringPerformed = true;
         this.resetFiltering = true;
       }
+      
 
       resetFilter() {
         this.selectedInstrument = '';
