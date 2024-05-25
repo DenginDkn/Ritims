@@ -6,7 +6,9 @@
     <input type="checkbox" id="check" />
     <span class="menu">
       <li><a [routerLink]="''">Home</a></li>
-      <li><a>Messages</a></li>
+      <li *ngIf="isLoggedIn()">
+        <a [routerLink]="'/messages'" routerLinkActive="active">Messages</a>
+      </li>
       <li>
         <a [routerLink]="'/events'" routerLinkActive="active">Browse Events</a>
       </li>

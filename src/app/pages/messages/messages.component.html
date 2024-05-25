@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="header d-flex align-items-center justify-content-center p-3">
+      <div class="input-group me-3">
+        <input class="form-control" [(ngModel)]="username" placeholder="Enter your name" />
+      </div>
+      <form (submit)="submit($event)" class="d-flex">
+        <input class="form-control me-2" placeholder="Write a message" [(ngModel)]="message" name="message" />
+        <button class="btn btn-primary" type="submit">Send</button>
+      </form>
+    </div>
+    <div class="chat-messages list-group list-group-flush border-top scrollarea">
+      <div class="list-group-item list-group-item-action py-3 lh-tight" *ngFor="let msg of messages">
+        <div class="d-flex w-100 align-items-center justify-content-between">
+          <strong class="mb-1">{{ msg.username }}</strong>
+        </div>
+        <div class="col-10 mb-1 small">{{ msg.message }}</div>
+      </div>
+    </div>
+  </div>
+  
