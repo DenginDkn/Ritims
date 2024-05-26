@@ -33,7 +33,8 @@ namespace RitimsApi.Controllers
       data:new
       {
         username=dto.Username,
-        message=dto.Message
+        message=dto.Message,
+        timestamp = dto.TimeStamp
       });
 
       return Ok(new String[]{});

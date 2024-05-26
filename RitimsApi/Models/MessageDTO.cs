@@ -9,5 +9,6 @@ namespace RitimsApi.Models
     {
         public string Username { set; get; }
         public string Message { set; get; }
+        public string TimeStamp { set; get; }
     }
 }

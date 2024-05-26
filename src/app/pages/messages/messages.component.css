@@ -37,12 +37,14 @@ body {
   overflow-y: auto;
 }
 
-.list-group-item {
+.list-group-item[_ngcontent-ng-c1925703631] {
   background: #e9eff5;
   border: none;
   border-radius: 8px;
   margin-bottom: 10px;
   padding: 10px 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: #5e9cf7;
 }
 
 .list-group-item:last-child {
@@ -59,3 +61,26 @@ body {
   color: #ffffff;
   border-radius: 8px;
 }
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.35rem .50rem;
+  font-size: 1rem;
+  font-weight: 400;
+  margin-left: 15px;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: .375rem;
+  transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+.scrollarea{
+  min-height: 350px;
+}
+
