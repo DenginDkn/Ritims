@@ -1,14 +1,7 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace RitimsApi.Models
+public class MessageDTO
 {
-    public class MessageDTO
-    {
-        public string Username { set; get; }
-        public string Message { set; get; }
-        public string TimeStamp { set; get; }
-    }
+    public int Id { get; set; } // Primary key
+    public string Username { get; set; }
+    public string Message { get; set; }
+    public string TimeStamp { get; set; }
 }

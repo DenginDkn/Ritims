@@ -4,7 +4,7 @@
       <!-- Display the username instead of allowing input -->
       <input class="fs-5 fw-semibold" [value]="username" readonly />
     </div>
-    <form (submit)="submit($event)" class="d-flex">
+    <form (ngSubmit)="submit($event)" class="d-flex">
       <input class="form-control me-2" placeholder="Write a message" [(ngModel)]="message" name="message" />
       <button class="btn btn-primary" type="submit">Send</button>
     </form>

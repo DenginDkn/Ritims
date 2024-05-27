@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import Pusher from 'pusher-js';
@@ -19,20 +19,19 @@ interface Message {
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.css']
 })
-export class MessagesComponent implements OnInit {
+export class MessagesComponent implements AfterViewInit {
   username = 'username';
   message = '';
   messages: Message[] = [];
 
   constructor(
     private http: HttpClient,
-    private authService: AuthService, // Inject AuthService
-    private emailService: EmailService // Inject EmailService
+    private authService: AuthService,
+    private emailService: EmailService
   ) {}
 
-  ngOnInit(): void {
+  ngAfterViewInit(): void {
     Pusher.logToConsole = true;
-
     const pusher = new Pusher('73b91722453e60e5e5d3', {
       cluster: 'eu'
     });
@@ -43,27 +42,18 @@ export class MessagesComponent implements OnInit {
       this.messages.push(data);
     });
 
-    // Fetch user details
     if (this.authService.isLoggedInUser()) {
       const userEmail = this.emailService.getUserEmail();
+      
+      this.fetchMessages(); // Mesajları sayfa yüklendiğinde al
+
       this.http.get<any>(`http://localhost:5188/api/Users/GetByEmail/${userEmail}`)
         .subscribe(
           (response: any) => {
-            this.username = response.name; // Set the username to the user's name
+            this.username = response.name;
           },
           (error) => {
             console.error('Error fetching user profile:', error);
-          }
-        );
-
-      // If you need to fetch from musicians as well
-      this.http.get<any>(`http://localhost:5188/api/Musicians/GetByEmail/${userEmail}`)
-        .subscribe(
-          (response: any) => {
-            this.username = response.name; // Set the username to the user's name
-          },
-          (error) => {
-            console.error('Error fetching musician profile:', error);
           }
         );
     }
@@ -74,12 +64,31 @@ export class MessagesComponent implements OnInit {
     const newMessage: Message = {
       username: this.username,
       message: this.message,
-      timestamp: new Date().toISOString() // Include the current timestamp
+      timestamp: new Date().toISOString()
     };
-    this.http.post('http://localhost:5188/api/messages', newMessage).subscribe(() => {
+    
+    this.http.post('http://localhost:5188/api/chat/messages', newMessage).subscribe(() => {
       this.message = '';
+    
+      // Yeni mesaj gönderildikten sonra mevcut mesajları yenile
+      this.fetchMessages();
     }, error => {
-      console.error('Error:', error);
+      console.error('Error saving message:', error);
     });
   }
+  
+  
+  
+  fetchMessages(): void {
+    this.http.get<Message[]>('http://localhost:5188/api/chat/messages') // Doğru URL'yi kullan
+      .subscribe(
+        (messages: Message[]) => {
+          this.messages = messages;
+        },
+        (error) => {
+          console.error('Error fetching messages:', error);
+        }
+      );
+  }  
+  
 }

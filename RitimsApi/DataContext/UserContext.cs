@@ -11,9 +11,13 @@ namespace RitimsApi.DataContext
         public DbSet<Musician> Musicians { get; set; } = null!; 
         public DbSet<Event> Events { get; set; } = null!;
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            
-        }
+        public DbSet<MessageDTO> Messages { get; set; } = null!;
+
+       protected override void OnModelCreating(ModelBuilder modelBuilder)
+{
+    modelBuilder.Entity<MessageDTO>().HasKey(e => e.Id);
+}
+
+
     }
 }
