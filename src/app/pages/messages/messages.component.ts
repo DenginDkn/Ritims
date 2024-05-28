@@ -5,6 +5,8 @@ import { CommonModule } from '@angular/common';
 import Pusher from 'pusher-js';
 import { AuthService } from '../authservice'; // Make sure to import the AuthService
 import { EmailService } from '../../email.service'; // Import EmailService
+import { HOME_CONSTANTS } from '../../constants';
+import { MatCardModule } from '@angular/material/card';
 
 interface Message {
   username: string;
@@ -15,11 +17,12 @@ interface Message {
 @Component({
   selector: 'app-messages',
   standalone: true,
-  imports: [FormsModule, CommonModule],
+  imports: [FormsModule, CommonModule,MatCardModule],
   templateUrl: './messages.component.html',
   styleUrls: ['./messages.component.css']
 })
 export class MessagesComponent implements AfterViewInit {
+  constants = HOME_CONSTANTS;
   username = 'username';
   message = '';
   messages: Message[] = [];
@@ -48,6 +51,16 @@ export class MessagesComponent implements AfterViewInit {
       this.fetchMessages(); // Mesajları sayfa yüklendiğinde al
 
       this.http.get<any>(`http://localhost:5188/api/Users/GetByEmail/${userEmail}`)
+        .subscribe(
+          (response: any) => {
+            this.username = response.name;
+          },
+          (error) => {
+            console.error('Error fetching user profile:', error);
+          }
+        );
+
+        this.http.get<any>(`http://localhost:5188/api/Musicians/GetByEmail/${userEmail}`)
         .subscribe(
           (response: any) => {
             this.username = response.name;
